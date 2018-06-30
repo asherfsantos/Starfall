@@ -19,24 +19,30 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		HandleMovements();
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
+		HandleMovements();
 		HandleInput();
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
-			currentStar = other.gameObject;
-			if(canLand)
-			{
-				onStar = true;
-				MoveWithStar();
-			}
+			LandOnStar(other.gameObject);
+			
 	}
 
+	void LandOnStar(GameObject star)
+	{
+		if(canLand && !onStar)
+			{
+				currentStar = star;
+				onStar = true;
+				MoveWithStar();
+				//MoveToStarCenter();
+			}
+	}
 	// move player position with star position
 	void MoveWithStar()
 	{
@@ -60,5 +66,13 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else
 			canLand = true;
+	}
+
+
+	void MoveToStarCenter()
+	{
+		float movementSpeed = 2.0f;
+		float step = movementSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, step);
 	}
 }

@@ -2,37 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour 
+{
 
-	public Rigidbody2D player;
+	public GameObject player;
 	public GameObject currentStar;
-	private bool onStar = true;
+	public bool onStar = false;
+	public bool canLand = true;
+
 	// Use this for initialization
 	void Start () 
 	{
-		//player = FindObjec
+		player = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		MoveWithStar();
+		HandleMovements();
+		float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveVertical = Input.GetAxis("Vertical");
+		HandleInput();
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-
-		if(other.tag == "Star")
+		// set current star player is riding on
+		if(other.gameObject.CompareTag("Star"))
 			currentStar = other.gameObject;
-			transform.position = other.transform.position;
-			onStar = true;
+			if(canLand)
+			{
+				onStar = true;
+				MoveWithStar();
+			}
 	}
 
+	// move player position with star position
 	void MoveWithStar()
 	{
+		transform.position = currentStar.transform.position;
+	}
+
+	// manipulate player position
+	void HandleMovements()
+	{
+		// if riding a star, move player position with it
 		if(onStar)
+			MoveWithStar();
+	}
+
+	private void HandleInput()
+	{
+		if (Input.GetKey(KeyCode.Space))
 		{
-			transform.position = currentStar.transform.position;
+			canLand = false;
+			onStar = false;
 		}
+		else
+			canLand = true;
 	}
 }

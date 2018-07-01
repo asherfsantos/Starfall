@@ -127,12 +127,8 @@ MonoBehaviour:
   canLand: 1
   speed: 5
   jumpForce: 5
-  groundCheck: {fileID: 0}
-  checkRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  extraJumps: 3
+  maxJumps: 3
+  jumpsRemaining: 0
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1

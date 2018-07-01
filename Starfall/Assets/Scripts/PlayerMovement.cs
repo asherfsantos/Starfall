@@ -14,12 +14,9 @@ public class PlayerMovement : MonoBehaviour
 	public float jumpForce;
 	private float moveInput;
 	private bool facingRight = false;
+	public int maxJumps;
+	public int jumpsRemaining;
 
-	private bool isGrounded;
-	public Transform groundCheck;
-	public float checkRadius;
-	public LayerMask whatIsGround;
-	public int extraJumps;
 
 	// Use this for initialization
 	void Start () 
@@ -32,10 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		moveInput = Input.GetAxis("Horizontal");
 		playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
-		/*float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-		this.transform.Translate(new Vector3(moveHorizontal, moveVertical) * Time.deltaTime * speed);*/
-		//playerBody.AddForce (movement * speed);
+
 		if(!facingRight && moveInput > 0)
 			Flip();
 		else if(facingRight && moveInput < 0)
@@ -67,11 +61,12 @@ public class PlayerMovement : MonoBehaviour
 	private void LandOnStar(GameObject star)
 	{
 		if(canLand && !onStar)
-			{
-				currentStar = star;
-				onStar = true;
-				HandleMovements();
-			}
+		{
+			currentStar = star;
+			onStar = true;
+			RefillFuel();
+			HandleMovements();
+		}
 	}
 	// move player position with star position
 	private void MoveWithStar()
@@ -89,22 +84,20 @@ public class PlayerMovement : MonoBehaviour
 
 	private void HandleInput()
 	{
-		if (Input.GetKey(KeyCode.Space))
+		if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
 		{
 			canLand = false;
 			onStar = false;
+			playerBody.velocity = Vector2.up * jumpForce;
+			jumpsRemaining--;
+			print("Jumps left: " + jumpsRemaining);
 		}
-		else
+		else if(Input.GetKeyUp(KeyCode.Space))
 			canLand = true;
-		if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
-		{
-			playerBody.velocity = Vector2.up * jumpForce;
-			extraJumps--;
-			print ("up");
-		}
-		else if(Input.GetKeyDown(KeyCode.W) && extraJumps == 0)
-		{
-			playerBody.velocity = Vector2.up * jumpForce;
-		}
+	}
+
+	private void RefillFuel()
+	{
+		jumpsRemaining = maxJumps;
 	}
 }

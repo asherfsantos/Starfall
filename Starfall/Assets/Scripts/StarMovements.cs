@@ -9,6 +9,8 @@ public class StarMovements : MonoBehaviour
 	public float endPosition;
 	GameObject player;
 	PlayerMovement playerData;
+	private Vector3 topLeft = new Vector3(-7.0f, 5.0f);
+	private Vector3 bottomRight = new Vector3(19.5f, -5.0f);
 
 	// Use this for initialization
 	void Start () 
@@ -28,7 +30,7 @@ public class StarMovements : MonoBehaviour
 	void MoveStar()
 	{
         float step = movementSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, Camera.main.ViewportToWorldPoint(new Vector3(0,1,0)), step);
+        transform.position = Vector3.MoveTowards(transform.position, topLeft, step);
 	}
 
 	//void OnTriggerEnter2D(Collider2D other)

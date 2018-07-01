@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody2D playerBody;
 	public bool onStar = false;
 	public bool canLand = true;
-	public float speed = 100.0f;
+	public float speed = 10.0f;
 
 	// Use this for initialization
 	void Start () 

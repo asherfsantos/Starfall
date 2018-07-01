@@ -9,8 +9,8 @@ public class StarMovements : MonoBehaviour
 	public float endPosition;
 	GameObject player;
 	PlayerMovement playerData;
-	private Vector3 topLeft = new Vector3(-7.0f, 5.0f);
-	private Vector3 bottomRight = new Vector3(19.5f, -5.0f);
+	public Vector3 topLeft = new Vector3(-7.0f, 5.0f);
+	public Vector3 bottomRight = new Vector3(19.5f, -5.0f);
 
 	// Use this for initialization
 	void Start () 

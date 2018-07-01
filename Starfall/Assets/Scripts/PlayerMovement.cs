@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 	private bool facingRight = false;
 	public int maxJumps;
 	public int jumpsRemaining;
+	private int count;
+	public Text countText;
 
 
 	// Use this for initialization
@@ -23,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		player = GameObject.FindWithTag("Player");
 		playerBody = player.GetComponent<Rigidbody2D>();;
+		//Count the remainder of JetPack left
+		countText.text = "JetPack Remaining:" + count.ToString();
 	}
 	
 	void FixedUpdate()
@@ -34,12 +39,16 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		else if(facingRight && moveInput < 0)
 			Flip();
+
+		count = jumpsRemaining;
 	}
 	// Update is called once per frame
 	void Update () 
 	{
 		HandleMovements();
 		HandleInput();
+		SetCountText();
+		
 	}
 
 	void Flip()
@@ -99,5 +108,10 @@ public class PlayerMovement : MonoBehaviour
 	private void RefillFuel()
 	{
 		jumpsRemaining = maxJumps;
+	}
+
+	void SetCountText()
+	{
+		countText.text = "JetPack Remaining:"  + jumpsRemaining;
 	}
 }

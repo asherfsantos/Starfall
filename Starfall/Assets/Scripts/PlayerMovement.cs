@@ -7,15 +7,25 @@ public class PlayerMovement : MonoBehaviour
 
 	public GameObject player;
 	public GameObject currentStar;
+	public Rigidbody2D playerBody;
 	public bool onStar = false;
 	public bool canLand = true;
+	public float speed = 100.0f;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
+		playerBody = player.GetComponent<Rigidbody2D>();;
 	}
 	
+	void FixedUpdate()
+	{
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+		transform.Translate(new Vector3(moveHorizontal, moveVertical) * Time.deltaTime * speed);
+		//playerBody.AddForce (movement * speed);
+	}
 	// Update is called once per frame
 	void Update () 
 	{

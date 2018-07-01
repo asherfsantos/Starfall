@@ -11,6 +11,15 @@ public class PlayerMovement : MonoBehaviour
 	public bool onStar = false;
 	public bool canLand = true;
 	public float speed = 10.0f;
+	public float jumpForce;
+	private float moveInput;
+	private bool facingRight = false;
+
+	private bool isGrounded;
+	public Transform groundCheck;
+	public float checkRadius;
+	public LayerMask whatIsGround;
+	public int extraJumps;
 
 	// Use this for initialization
 	void Start () 
@@ -21,16 +30,30 @@ public class PlayerMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
+		moveInput = Input.GetAxis("Horizontal");
+		playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
+		/*float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
-		transform.Translate(new Vector3(moveHorizontal, moveVertical) * Time.deltaTime * speed);
+		this.transform.Translate(new Vector3(moveHorizontal, moveVertical) * Time.deltaTime * speed);*/
 		//playerBody.AddForce (movement * speed);
+		if(!facingRight && moveInput > 0)
+			Flip();
+		else if(facingRight && moveInput < 0)
+			Flip();
 	}
 	// Update is called once per frame
 	void Update () 
 	{
 		HandleMovements();
 		HandleInput();
+	}
+
+	void Flip()
+	{
+		facingRight = !facingRight;
+		Vector3 Scaler = transform.localScale;
+		Scaler.x *= -1;
+		transform.localScale = Scaler;
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -73,5 +96,15 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else
 			canLand = true;
+		if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
+		{
+			playerBody.velocity = Vector2.up * jumpForce;
+			extraJumps--;
+			print ("up");
+		}
+		else if(Input.GetKeyDown(KeyCode.W) && extraJumps == 0)
+		{
+			playerBody.velocity = Vector2.up * jumpForce;
+		}
 	}
 }

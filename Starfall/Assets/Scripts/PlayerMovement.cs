@@ -61,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
-		if(other.gameObject.CompareTag("Comet"))
-			other.gameObject.GetComponent<CometScript>().onComet = true;
+		if(other.gameObject.CompareTag("Meteor"))
+			other.gameObject.GetComponent<MeteorScript>().onMeteor = true;
 			
 	}
 

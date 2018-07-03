@@ -239,6 +239,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c2379be3fdce17458d10c2b4b6c9a9d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1279044539 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1240480836033958, guid: 78cad3a7507a43043822dfcf1796f736,
+    type: 2}
+  m_PrefabInternal: {fileID: 1546110127}
+--- !u!114 &1279044540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279044539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfa19a8e5615784c92d252e0cb1d3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerScript: {fileID: 0}
+  timeLimit: 3
+  onMeteor: 0
 --- !u!1 &1463860070
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,42 +347,52 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.022
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.621
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4619992870854928, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 4035571256956388, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1842716300698986, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 1240480836033958, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_Name
-      value: Comet
+      value: Meteor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
+    - target: {fileID: 1240480836033958, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
+      propertyPath: m_TagString
+      value: Meteor
+      objectReference: {fileID: 0}
+    - target: {fileID: 50310551113991026, guid: 78cad3a7507a43043822dfcf1796f736,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: cea87daf650760e44879ca8a24df40a2, type: 2}
+    m_RemovedComponents:
+    - {fileID: 114060824745081888, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
   m_IsPrefabParent: 0

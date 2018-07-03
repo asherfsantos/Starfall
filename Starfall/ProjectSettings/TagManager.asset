@@ -7,6 +7,7 @@ TagManager:
   - Meteor
   - Star
   - Player Camera
+  - Asteroid
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Gameplay
     uniqueID: 2092040613
+    locked: 0
+  - name: Player
+    uniqueID: 3609499675
     locked: 0

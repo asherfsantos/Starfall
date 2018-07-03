@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50320355689873382}
   - component: {fileID: 114971042692835258}
   - component: {fileID: 114678326388075310}
+  - component: {fileID: 114207892763200852}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -63,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61981814196254860
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -89,6 +90,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9, y: 10.8}
   m_EdgeRadius: 0
+--- !u!114 &114207892763200852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261616146494826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ad1824424a7d242930f884e01c4a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroid: {fileID: 1445418554386438, guid: 2c2379be3fdce17458d10c2b4b6c9a9d, type: 2}
+  nextSpawn: 0
+  spawnRate: 5
+  spawnLocationX: 20
+  lowerY: -5
+  upperY: 5
+  randomY: 0
+  spawnLocation: {x: 0, y: 0}
 --- !u!114 &114678326388075310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6294da3f7eea8ab44b6df5fb735c45af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   star: {fileID: 1844278647492636, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   nextSpawn: 0
   spawnRate: 3
@@ -123,12 +142,15 @@ MonoBehaviour:
   player: {fileID: 0}
   currentStar: {fileID: 0}
   playerBody: {fileID: 0}
+  playerRenderer: {fileID: 0}
+  deathSprite: {fileID: 21300000, guid: 99090430f1a07184bbc3fe99e3b911a3, type: 3}
   onStar: 0
   canLand: 1
   speed: 5
   jumpForce: 5
   maxJumps: 3
   jumpsRemaining: 0
+  countText: {fileID: 0}
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -161,8 +183,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2092040613
-  m_SortingLayer: 2
+  m_SortingLayerID: -685467621
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c16cbe0ff95c5c40978fb0c609be31e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

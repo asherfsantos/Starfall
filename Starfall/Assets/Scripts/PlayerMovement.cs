@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject player;
 	public GameObject currentStar;
 	public Rigidbody2D playerBody;
+	public SpriteRenderer playerRenderer;
+	public Sprite deathSprite;
 	public bool onStar = false;
 	public bool canLand = true;
 	public float speed = 10.0f;
@@ -25,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
-		playerBody = player.GetComponent<Rigidbody2D>();;
+		playerBody = player.GetComponent<Rigidbody2D>();
+		playerRenderer = player.GetComponent<SpriteRenderer>();
 		//Count the remainder of JetPack left
 		countText.text = "JetPack Remaining:" + count.ToString();
 	}
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		HandleMovements();
 		HandleInput();
-		SetCountText();
+		//SetCountText();
 		
 	}
 
@@ -113,5 +116,10 @@ public class PlayerMovement : MonoBehaviour
 	void SetCountText()
 	{
 		countText.text = "JetPack Remaining:"  + jumpsRemaining;
+	}
+
+	public void PlayerDies()
+	{
+		playerRenderer.sprite = deathSprite;
 	}
 }

@@ -5,8 +5,6 @@ using UnityEngine;
 public class StarMovements : MonoBehaviour 
 {
 	public float movementSpeed;
-	public float startPosition;
-	public float endPosition;
 	GameObject player;
 	PlayerMovement playerData;
 	public Vector3 topLeft = new Vector3(-7.0f, 5.0f);
@@ -31,6 +29,8 @@ public class StarMovements : MonoBehaviour
 	{
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, topLeft, step);
+		if(transform.position == topLeft)
+			Destroy(gameObject);
 	}
 
 	//void OnTriggerEnter2D(Collider2D other)

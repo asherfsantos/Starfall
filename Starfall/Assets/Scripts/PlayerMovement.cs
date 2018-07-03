@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
 	private bool facingRight = false;
 	public int maxJumps;
 	public int jumpsRemaining;
-	private int count;
-	public Text countText;
 
 
 	// Use this for initialization
@@ -29,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
 		player = GameObject.FindWithTag("Player");
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
-		//Count the remainder of JetPack left
-		//countText.text = "JetPack Remaining:" + count.ToString();
 	}
 	
 	void FixedUpdate()
@@ -42,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		else if(facingRight && moveInput < 0)
 			Flip();
-
-		count = jumpsRemaining;
 	}
 	// Update is called once per frame
 	void Update () 
@@ -67,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
+		if(other.gameObject.CompareTag("Comet"))
+			other.gameObject.GetComponent<CometScript>().onComet = true;
 			
 	}
 
@@ -110,11 +106,6 @@ public class PlayerMovement : MonoBehaviour
 	private void RefillFuel()
 	{
 		jumpsRemaining = maxJumps;
-	}
-
-	void SetCountText()
-	{
-		countText.text = "JetPack Remaining:"  + jumpsRemaining;
 	}
 
 	public void PlayerDies()

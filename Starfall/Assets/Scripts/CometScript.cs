@@ -9,7 +9,7 @@ public class CometScript : MonoBehaviour
 	private float landingTime;
 	private bool timerStarted = false;
 	public float timeLimit = 3.0f;
-	private bool onComet = false;
+	public bool onComet = false;
 
 	// Use this for initialization
 	void Start () 
@@ -21,21 +21,19 @@ public class CometScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		CometTimer();
+		if(onComet)
+			CometTimer();
 	}
 
-	void OnTriggerStay2D(Collider2D other)
+	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if(other.gameObject.CompareTag("Player"))
-		{
-			if(!timerStarted)
-				StartTimer();
-		}
+			onComet = true;
 	}
 
-	void OnTriggerExit2D(Collider2D other)
+	private void OnCollisionExit2D(Collision2D other)
 	{
-		timerStarted = false;
+		onComet = false;
 	}
 
 	void StartTimer()
@@ -48,10 +46,8 @@ public class CometScript : MonoBehaviour
 	{
 		if(Time.time > landingTime + timeLimit)
 		{
-			print("time limit reached");
-			print("with fuel: " + playerScript.jumpsRemaining);
+			print("jumps remaining: " + playerScript.jumpsRemaining);
 			ReduceFuel();
-			print("reduced to: " + playerScript.jumpsRemaining);
 		}
 	}
 

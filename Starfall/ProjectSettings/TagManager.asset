@@ -8,6 +8,7 @@ TagManager:
   - Star
   - Player Camera
   - Asteroid
+  - Comet
   layers:
   - Default
   - TransparentFX

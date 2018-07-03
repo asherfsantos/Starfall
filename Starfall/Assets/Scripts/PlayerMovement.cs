@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
 		//Count the remainder of JetPack left
-		countText.text = "JetPack Remaining:" + count.ToString();
+		//countText.text = "JetPack Remaining:" + count.ToString();
 	}
 	
 	void FixedUpdate()
@@ -102,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
 			onStar = false;
 			playerBody.velocity = Vector2.up * jumpForce;
 			jumpsRemaining--;
-			print("Jumps left: " + jumpsRemaining);
 		}
 		else if(Input.GetKeyUp(KeyCode.Space))
 			canLand = true;

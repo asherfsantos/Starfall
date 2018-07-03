@@ -255,6 +255,11 @@ Prefab:
       propertyPath: jumpForce
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114207892763200852, guid: 7a7d9a2cf22098e4b96d614b9e5d5529,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
   m_IsPrefabParent: 0
@@ -437,7 +442,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928009473}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 519491d28e7608e4cb107e76a7c8682e, type: 3}

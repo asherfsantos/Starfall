@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody2D playerBody;
 	public SpriteRenderer playerRenderer;
 	public Sprite deathSprite;
+	public Sprite frozenSprite;
+	public Sprite idleSprite;
 	public bool onStar = false;
 	public bool canLand = true;
 	public float speed = 10.0f;
@@ -63,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
 			LandOnStar(other.gameObject);
 		if(other.gameObject.CompareTag("Meteor"))
 			other.gameObject.GetComponent<MeteorScript>().onMeteor = true;
+		if(other.gameObject.CompareTag("Black Hole"))
+			if(canLand)
+				BlackHoleDeath(other);
+		if(other.gameObject.CompareTag("Asteroid"))
+			AsteroidDeath(other);
 			
 	}
 
@@ -110,6 +117,30 @@ public class PlayerMovement : MonoBehaviour
 
 	public void PlayerDies()
 	{
+		playerRenderer.sprite = deathSprite;
+	}
+
+	public void FreezePlayer()
+	{
+		playerRenderer.sprite = frozenSprite;
+	}
+
+	public void UnfreezePlayer()
+	{
+		playerRenderer.sprite = idleSprite;
+	}
+
+	public void BlackHoleDeath(Collider2D blackHole)
+	{
+		transform.position = blackHole.transform.position;
+		//playerBody.gravityScale = 0;
+		playerRenderer.sprite = deathSprite;
+	}
+
+	public void AsteroidDeath(Collider2D asteroid)
+	{
+		transform.position = asteroid.transform.position;
+		//playerBody.gravityScale = 1;
 		playerRenderer.sprite = deathSprite;
 	}
 }

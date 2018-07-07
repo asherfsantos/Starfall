@@ -64,26 +64,22 @@ public class CometScript : MonoBehaviour
 
 	void FreezePlayer()
 	{
-		print("Player Frozen");
 		if(Time.time < frozenEndTime)
 		{
 			frozen = true;
+			print("Player Frozen");
+			playerScript.FreezePlayer();
 		}	
-		else
+		if(Time.time > frozenEndTime)
+		{
 			frozen = false;
+			print("Player unfrozen");
+			playerScript.UnfreezePlayer();
+		}
 		if(frozen)
 		{
 			player.transform.position = frozenPosition;
 			//or disable input
-		}
-		
-		/*do
-		{
-			if(Time.time < unfreezeTime)
-				player.transform.position = frozenPosition;
-			else
-				frozen = false;
-		}while(frozen);*/
-		
+		}	
 	}
 }

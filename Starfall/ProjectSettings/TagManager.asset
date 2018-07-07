@@ -9,6 +9,7 @@ TagManager:
   - Player Camera
   - Asteroid
   - Comet
+  - Black Hole
   layers:
   - Default
   - TransparentFX

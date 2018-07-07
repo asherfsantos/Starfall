@@ -144,13 +144,14 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   playerRenderer: {fileID: 0}
   deathSprite: {fileID: 21300000, guid: 99090430f1a07184bbc3fe99e3b911a3, type: 3}
+  frozenSprite: {fileID: 21300000, guid: 5d8f9f0008c42a645be1ecff8beb2ba3, type: 3}
+  idleSprite: {fileID: 21300000, guid: 9c16cbe0ff95c5c40978fb0c609be31e, type: 3}
   onStar: 0
   canLand: 1
   speed: 5
-  jumpForce: 5
+  jumpForce: 3
   maxJumps: 3
   jumpsRemaining: 0
-  countText: {fileID: 0}
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1

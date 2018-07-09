@@ -10,6 +10,7 @@ TagManager:
   - Asteroid
   - Comet
   - Black Hole
+  - Background
   layers:
   - Default
   - TransparentFX

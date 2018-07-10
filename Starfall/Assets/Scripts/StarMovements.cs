@@ -26,10 +26,6 @@ public class StarMovements : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		/*if(!colorChosen)
-		{
-			StarColor();
-		}*/
 		MoveStar();
 	}
 
@@ -42,7 +38,6 @@ public class StarMovements : MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	//void OnTriggerEnter2D(Collider2D other)
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if(other.gameObject.CompareTag("Star"))	

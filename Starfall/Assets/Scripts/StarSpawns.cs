@@ -16,7 +16,7 @@ public class StarSpawns : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		SpawnStar();
+
 	}
 
 	// Update is called once per frame

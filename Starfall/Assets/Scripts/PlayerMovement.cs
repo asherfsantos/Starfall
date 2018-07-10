@@ -136,14 +136,12 @@ public class PlayerMovement : MonoBehaviour
 	public void BlackHoleDeath(Collider2D blackHole)
 	{
 		transform.position = blackHole.transform.position;
-		//playerBody.gravityScale = 0;
 		playerRenderer.sprite = deathSprite;
 	}
 
 	public void AsteroidDeath(Collider2D asteroid)
 	{
 		transform.position = asteroid.transform.position;
-		//playerBody.gravityScale = 1;
 		playerRenderer.sprite = deathSprite;
 	}
 

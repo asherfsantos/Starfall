@@ -81,7 +81,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9, y: 10.8}
+    oldSize: {x: 12.610001, y: 26.37}
     newSize: {x: 9, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   asteroid: {fileID: 1445418554386438, guid: 2c2379be3fdce17458d10c2b4b6c9a9d, type: 2}
   nextSpawn: 0
   spawnRate: 5
-  spawnLocationX: 20
+  spawnLocationX: 81
   lowerY: -5
   upperY: 5
   randomY: 0
@@ -123,9 +123,9 @@ MonoBehaviour:
   star: {fileID: 1844278647492636, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   nextSpawn: 0
   spawnRate: 3
-  spawnLocationX: 20
-  lowerY: -5
-  upperY: -3
+  spawnLocationX: 81
+  upperY: -6
+  lowerY: -8
   randomY: 0
   spawnLocation: {x: 0, y: 0}
 --- !u!114 &114971042692835258
@@ -152,6 +152,8 @@ MonoBehaviour:
   jumpForce: 3
   maxJumps: 3
   jumpsRemaining: 0
+  count: 0
+  countText: {fileID: 0}
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -187,9 +189,9 @@ SpriteRenderer:
   m_SortingLayerID: -685467621
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c16cbe0ff95c5c40978fb0c609be31e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27cccc21286b5d249832135e9ea66814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 9, y: 10.8}

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 1844278647492636, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   nextSpawn: 0
-  spawnRate: 3
+  spawnRate: 1
   spawnLocationX: 81
   upperY: -6
   lowerY: -8

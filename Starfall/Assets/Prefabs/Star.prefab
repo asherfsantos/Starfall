@@ -79,8 +79,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.29, y: 2.2}
-    newSize: {x: 2.29, y: 2.2}
+    oldSize: {x: 2.5, y: 2.5}
+    newSize: {x: 2.5, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -100,8 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  startPosition: 0
-  endPosition: 0
+  topLeft: {x: -7, y: 5, z: 0}
+  bottomRight: {x: 19.5, y: -5, z: 0}
+  purpleStar: {fileID: 21300000, guid: d0113bbf8d3803c45865914a0c5004c4, type: 3}
+  pinkStar: {fileID: 21300000, guid: 61914e2312002f249b192e1aaf684612, type: 3}
+  whiteStar: {fileID: 21300000, guid: d3c964d528d529944ba4d61be50d0cfd, type: 3}
+  starRenderer: {fileID: 212729257857752334}
 --- !u!212 &212729257857752334
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -137,12 +141,12 @@ SpriteRenderer:
   m_SortingLayerID: 2092040613
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 21eb81fa43bcfe74891106f492e45a3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0113bbf8d3803c45865914a0c5004c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.29, y: 2.2}
+  m_Size: {x: 2.5, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

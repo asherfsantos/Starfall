@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool facingRight = false;
 	public int maxJumps;
 	public int jumpsRemaining;
-	public int count;
-	public Text countText;
+
 
 
 	// Use this for initialization
@@ -42,16 +41,13 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		else if(facingRight && moveInput < 0)
 			Flip();
-		count = jumpsRemaining;
-		SetCountText();
+
 	}
 	// Update is called once per frame
 	void Update () 
 	{
 		HandleMovements();
 		HandleInput();
-		//SetCountText();
-		
 	}
 
 	void Flip()
@@ -146,10 +142,5 @@ public class PlayerMovement : MonoBehaviour
 		transform.position = asteroid.transform.position;
 		//playerBody.gravityScale = 1;
 		playerRenderer.sprite = deathSprite;
-	}
-
-	void SetCountText()
-	{
-		countText.text ="Jumps Remaining: " + count.ToString();
 	}
 }

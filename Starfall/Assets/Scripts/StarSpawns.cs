@@ -13,12 +13,12 @@ public class StarSpawns : MonoBehaviour
 	public float randomY;
 	public Vector2 spawnLocation;
 
-
 	// Use this for initialization
 	void Start () 
 	{
+		
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -35,4 +35,5 @@ public class StarSpawns : MonoBehaviour
 			Instantiate(star, spawnLocation, Quaternion.identity);
 		}
 	}
+
 }

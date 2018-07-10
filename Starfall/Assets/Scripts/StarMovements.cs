@@ -9,6 +9,9 @@ public class StarMovements : MonoBehaviour
 	PlayerMovement playerData;
 	public Vector3 topLeft = new Vector3(-1.0f, 7.0f);
 	public Vector3 bottomRight = new Vector3(81.0f, -8.0f);
+	public Sprite purpleStar, pinkStar, whiteStar;
+	public SpriteRenderer starRenderer;
+	private bool colorChosen = false;
 
 	// Use this for initialization
 	void Start () 
@@ -16,11 +19,17 @@ public class StarMovements : MonoBehaviour
 		player = GameObject.FindWithTag("Player");
 		playerData = player.GetComponent<PlayerMovement>();
 		movementSpeed = Random.Range(0.5f, 3.0f);
+		starRenderer = GetComponent<SpriteRenderer>();
+		StarColor();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		/*if(!colorChosen)
+		{
+			StarColor();
+		}*/
 		MoveStar();
 	}
 
@@ -71,5 +80,24 @@ public class StarMovements : MonoBehaviour
 	{
 		if(transform.position == Camera.main.ViewportToWorldPoint(new Vector3(0,1,0)))
 			Destroy(gameObject);
+	}
+
+	void StarColor()
+	{
+		int randomNumber = Random.Range(0, 3);
+		switch (randomNumber)
+		{
+			case 0:
+				starRenderer.sprite = purpleStar;
+				break;
+			case 1:
+				starRenderer.sprite = whiteStar;
+				break;
+			case 2:
+				starRenderer.sprite = pinkStar;
+				break;
+		}
+		colorChosen = true;
+		
 	}
 }

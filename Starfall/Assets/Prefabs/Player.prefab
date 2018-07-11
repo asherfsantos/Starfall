@@ -152,6 +152,11 @@ MonoBehaviour:
   jumpForce: 3
   maxJumps: 3
   jumpsRemaining: 0
+  playerProgress: 0
+  levelStartPos: -35
+  levelEndPos: 45
+  myAnim: {fileID: 0}
+  falling: 0
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1

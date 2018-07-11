@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
 	public int playerProgress;
 	public float levelStartPos = -35.0f;
 	public float levelEndPos = 45.0f;
-
+	public Animator myAnim;
+	public bool falling;
 
 	// Use this for initialization
 	void Start () 
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 		player = GameObject.FindWithTag("Player");
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
+		myAnim = player.GetComponent<Animator>();
 	}
 	
 	void FixedUpdate()
@@ -45,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		//print("Progress: " + CalculateProgress().ToString("F2"));
 
+		myAnim.SetBool ("falling", falling);
+		myAnim.SetBool ("onStar", onStar);
 	}
 	// Update is called once per frame
 	void Update () 
@@ -108,9 +112,13 @@ public class PlayerMovement : MonoBehaviour
 			onStar = false;
 			playerBody.velocity = Vector2.up * jumpForce;
 			jumpsRemaining--;
+			falling = false;
 		}
 		else if(Input.GetKeyUp(KeyCode.Space))
+		{
 			canLand = true;
+			falling = true;
+		}
 	}
 
 	private void RefillFuel()

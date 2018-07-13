@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	public float levelEndPos = 45.0f;
 	public Animator myAnim;
 	public bool falling;
+	public bool movingToCenter;
 
 	// Use this for initialization
 	void Start () 
@@ -93,7 +94,24 @@ public class PlayerMovement : MonoBehaviour
 	// move player position with star position
 	private void MoveWithStar()
 	{
+		//MoveTowardCenter();
+
+		//if(movingToCenter == false)
 		transform.position = currentStar.transform.position;
+	}
+
+	private void MoveTowardCenter()
+	{
+		if (transform.position == Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime)))
+		{
+			MoveWithStar();
+			//transform.position = currentStar.transform.position;
+		}
+		else
+		{
+			transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime));
+		}
+		//MoveWithStar();
 	}
 
 	// manipulate player position
@@ -101,7 +119,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		// if riding a star, move player position with it
 		if(onStar)
-			MoveWithStar();
+			MoveTowardCenter();
+			//MoveWithStar();
 	}
 
 	private void HandleInput()

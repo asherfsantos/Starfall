@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool falling;
 	public bool movingToCenter;
 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
 		myAnim = player.GetComponent<Animator>();
+
 	}
 	
 	void FixedUpdate()

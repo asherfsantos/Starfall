@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressScript : MonoBehaviour 
+public class FuelBarScript : MonoBehaviour 
 {
-
 	public GameObject player;
 	public PlayerMovement playerData;
-	public Slider progressBar;
-	
+	public Slider fuelBar;
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
 		playerData = player.GetComponent<PlayerMovement>();
-		progressBar.value = playerData.CalculateProgress();
+		SetFuelBar();
+		fuelBar.maxValue = playerData.maxJumps;
 	}
 	
-
+	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		progressBar.value = playerData.CalculateProgress();
+		SetFuelBar();
+	}
+
+	void SetFuelBar()
+	{
+		fuelBar.value = playerData.jumpsRemaining;
 	}
 }

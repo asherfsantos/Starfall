@@ -123,9 +123,10 @@ public class PlayerMovement : MonoBehaviour
 	private void HandleMovements()
 	{
 		// if riding a star, move player position with it
+		//if(onStar)
+		//	MoveTowardCenter();
 		if(onStar)
-			MoveTowardCenter();
-			//MoveWithStar();
+			MoveWithStar();
 	}
 
 	private void HandleInput()

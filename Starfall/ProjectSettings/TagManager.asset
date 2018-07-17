@@ -11,6 +11,8 @@ TagManager:
   - Comet
   - Black Hole
   - Background
+  - Endpoint
+  - Startpoint
   layers:
   - Default
   - TransparentFX

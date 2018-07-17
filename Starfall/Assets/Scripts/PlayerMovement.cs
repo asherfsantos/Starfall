@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
 		myAnim = player.GetComponent<Animator>();
+		levelStartPos = GameObject.FindWithTag("Startpoint").transform.position.x;
+		levelEndPos = GameObject.FindWithTag("Endpoint").transform.position.x;
+		jumpsRemaining = maxJumps;
 
 	}
 	

@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 1194682643}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Endpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2297,7 +2297,7 @@ GameObject:
   - component: {fileID: 2132752588}
   m_Layer: 0
   m_Name: UFO
-  m_TagString: Untagged
+  m_TagString: Startpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -13,6 +13,9 @@ TagManager:
   - Background
   - Endpoint
   - Startpoint
+  - Main Menu
+  - Loading Canvas
+  - Main Canvas
   layers:
   - Default
   - TransparentFX

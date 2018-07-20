@@ -56,12 +56,13 @@ public class PlayerMovement : MonoBehaviour
 
 		myAnim.SetBool ("falling", falling);
 		myAnim.SetBool ("onStar", onStar);
+		HandleMovements();
+		HandleInput();
 	}
 	// Update is called once per frame
 	void Update () 
 	{
-		HandleMovements();
-		HandleInput();
+		
 	}
 
 	void Flip()

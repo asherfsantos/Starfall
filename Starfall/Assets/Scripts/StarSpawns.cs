@@ -12,11 +12,13 @@ public class StarSpawns : MonoBehaviour
 	public float lowerY = -8.0f;
 	public float randomY;
 	public Vector2 spawnLocation;
+	public GameObject starsParent;
+	public GameObject newStar;
 
 	// Use this for initialization
 	void Start () 
 	{
-
+		starsParent = GameObject.FindGameObjectWithTag("Stars Parent");
 	}
 
 	// Update is called once per frame
@@ -32,7 +34,8 @@ public class StarSpawns : MonoBehaviour
 			nextSpawn = Time.time + spawnRate;
 			randomY = Random.Range(lowerY, upperY);
 			spawnLocation = new Vector2(spawnLocationX, randomY);
-			Instantiate(star, spawnLocation, Quaternion.identity);
+			newStar = Instantiate(star, spawnLocation, Quaternion.identity);
+			newStar.transform.parent = starsParent.transform;
 		}
 	}
 

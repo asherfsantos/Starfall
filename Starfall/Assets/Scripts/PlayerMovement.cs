@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	public Animator myAnim;
 	public bool falling;
 	public bool movingToCenter;
+	private Vector3 velocity = Vector3.zero;
 
 
 	// Use this for initialization
@@ -102,12 +103,13 @@ public class PlayerMovement : MonoBehaviour
 		//MoveTowardCenter();
 
 		//if(movingToCenter == false)
+		playerBody.gravityScale = 0;
 		transform.position = currentStar.transform.position;
 	}
 
 	private void MoveTowardCenter()
 	{
-		if (transform.position == Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime)))
+		/*if (transform.position == Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime)))
 		{
 			MoveWithStar();
 			//transform.position = currentStar.transform.position;
@@ -116,7 +118,11 @@ public class PlayerMovement : MonoBehaviour
 		{
 			transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime));
 		}
-		//MoveWithStar();
+		//MoveWithStar();*/
+		// Define a target position above and behind the target transform
+
+        // Smoothly move the camera towards that target position
+        transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 	}
 
 	// manipulate player position
@@ -126,13 +132,18 @@ public class PlayerMovement : MonoBehaviour
 		//if(onStar)
 		//	MoveTowardCenter();
 		if(onStar)
-			MoveWithStar();
+		{
+			//MoveWithStar();
+			playerBody.gravityScale = 0;
+			MoveTowardCenter();
+		}
 	}
 
 	private void HandleInput()
 	{
 		if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
 		{
+			playerBody.gravityScale = 0.5f;
 			canLand = false;
 			onStar = false;
 			playerBody.velocity = Vector2.up * jumpForce;

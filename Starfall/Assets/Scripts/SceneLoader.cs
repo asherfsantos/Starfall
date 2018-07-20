@@ -22,11 +22,6 @@ public class SceneLoader : MonoBehaviour
 		
 	}
 
-	public void DisableMainMenu()
-	{
-		GameObject.FindGameObjectWithTag("Main Canvas").SetActive(false);
-	}
-
 	public void LoadScreen(int level)
 	{
 		StartCoroutine(LoadingScreen(level));

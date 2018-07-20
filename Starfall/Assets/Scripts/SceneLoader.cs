@@ -22,6 +22,11 @@ public class SceneLoader : MonoBehaviour
 		
 	}
 
+	public void DisableMainMenu()
+	{
+		GameObject.FindGameObjectWithTag("Main Menu Canvas").SetActive(false);
+	}
+
 	public void LoadScreen(int level)
 	{
 		StartCoroutine(LoadingScreen(level));
@@ -32,12 +37,13 @@ public class SceneLoader : MonoBehaviour
 		loadingScreenObj.SetActive(true);
 		async = SceneManager.LoadSceneAsync(level);
 		async.allowSceneActivation = false;
-		yield return new WaitForSeconds(5);
+		
 
 		while(!async.isDone)
 		{
 			loadingSlider.value = async.progress;
-			print(loadingSlider.value);
+			//print(loadingSlider.value);
+			yield return new WaitForSeconds(5);
 			if(async.progress == 0.9f)
 			{
 				loadingSlider.value = 1.0f;

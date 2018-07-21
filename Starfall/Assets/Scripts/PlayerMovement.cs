@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 			else if(facingRight && moveInput < 0)
 				Flip();
 		}
-		//print("Progress: " + CalculateProgress().ToString("F2"));
 
 		myAnim.SetBool ("falling", falling);
 		myAnim.SetBool ("onStar", onStar);
@@ -114,19 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void MoveTowardCenter()
 	{
-		/*if (transform.position == Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime)))
-		{
-			MoveWithStar();
-			//transform.position = currentStar.transform.position;
-		}
-		else
-		{	
-			transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime));
-		}
-		//MoveWithStar();*/
-		// Define a target position above and behind the target transform
 
-        // Smoothly move the camera towards that target position
 		playerBody.gravityScale = 0;
         transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 	}

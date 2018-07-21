@@ -92,13 +92,13 @@ public class CometScript : MonoBehaviour
 		if(frozen)
 		{
 			frozen = true;
-			print("Frozen");
+			//print("Frozen");
 			playerScript.FreezePlayer();
 		}
 		if(!frozen)
 		{
 			frozen = false;
-			print("Unfrozen");
+			//print("Unfrozen");
 			playerScript.UnfreezePlayer();
 		}
 	}

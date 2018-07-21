@@ -8,11 +8,13 @@ public class EndPointScript : MonoBehaviour
 	public GameObject player;
 	public Rigidbody2D playerBody;
 	public bool sceneLoading = false;
+	public PlayerMovement playerData;
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
 		playerBody = player.GetComponent<Rigidbody2D>();
+		playerData = player.GetComponent<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
@@ -23,10 +25,10 @@ public class EndPointScript : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		// set current star player is riding on
-		print("player here");
 		if(other.gameObject.CompareTag("Player"))
 		{
+			playerData.canLand = false;
+			playerData.canMove = false;
 			playerBody.position = transform.position;
 			if(!sceneLoading)
 			{

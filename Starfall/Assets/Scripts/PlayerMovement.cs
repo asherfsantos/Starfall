@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool falling;
 	public bool movingToCenter;
 	private Vector3 velocity = Vector3.zero;
+	public bool canMove = true;
 
 
 	// Use this for initialization
@@ -40,18 +41,21 @@ public class PlayerMovement : MonoBehaviour
 		levelStartPos = GameObject.FindWithTag("Startpoint").transform.position.x;
 		levelEndPos = GameObject.FindWithTag("Endpoint").transform.position.x;
 		jumpsRemaining = maxJumps;
+		canMove = true;
 
 	}
 	
 	void FixedUpdate()
 	{
 		moveInput = Input.GetAxis("Horizontal");
-		playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
-
-		if(!facingRight && moveInput > 0)
-			Flip();
-		else if(facingRight && moveInput < 0)
-			Flip();
+		if(canMove)
+		{
+			playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
+			if(!facingRight && moveInput > 0)
+				Flip();
+			else if(facingRight && moveInput < 0)
+				Flip();
+		}
 		//print("Progress: " + CalculateProgress().ToString("F2"));
 
 		myAnim.SetBool ("falling", falling);
@@ -116,13 +120,14 @@ public class PlayerMovement : MonoBehaviour
 			//transform.position = currentStar.transform.position;
 		}
 		else
-		{
+		{	
 			transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime));
 		}
 		//MoveWithStar();*/
 		// Define a target position above and behind the target transform
 
         // Smoothly move the camera towards that target position
+		playerBody.gravityScale = 0;
         transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 	}
 
@@ -142,20 +147,26 @@ public class PlayerMovement : MonoBehaviour
 
 	private void HandleInput()
 	{
-		if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+		print("Input");
+		if(canMove)
 		{
-			playerBody.gravityScale = 0.5f;
+			if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+			{
+				playerBody.gravityScale = 0.5f;
+				canLand = false;
+				onStar = false;
+				playerBody.velocity = Vector2.up * jumpForce;
+				jumpsRemaining--;
+				falling = false;
+			}
+			else if(Input.GetKeyUp(KeyCode.Space))
+			{
+				canLand = true;
+				falling = true;
+			}
+		}
+		if(!canMove)
 			canLand = false;
-			onStar = false;
-			playerBody.velocity = Vector2.up * jumpForce;
-			jumpsRemaining--;
-			falling = false;
-		}
-		else if(Input.GetKeyUp(KeyCode.Space))
-		{
-			canLand = true;
-			falling = true;
-		}
 	}
 
 	private void RefillFuel()

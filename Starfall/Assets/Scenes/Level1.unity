@@ -502,12 +502,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212729257857752334, guid: f93290c4c5e306245b6f3b8de80464a1,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d0113bbf8d3803c45865914a0c5004c4,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   m_IsPrefabParent: 0
@@ -678,11 +672,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.z
@@ -731,12 +725,12 @@ Prefab:
     - target: {fileID: 114678326388075310, guid: 7a7d9a2cf22098e4b96d614b9e5d5529,
         type: 2}
       propertyPath: lowerY
-      value: -8
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 114678326388075310, guid: 7a7d9a2cf22098e4b96d614b9e5d5529,
         type: 2}
       propertyPath: upperY
-      value: -6
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 212318984171719228, guid: 7a7d9a2cf22098e4b96d614b9e5d5529,
         type: 2}
@@ -1805,16 +1799,6 @@ Prefab:
       propertyPath: m_Name
       value: Star (19)
       objectReference: {fileID: 0}
-    - target: {fileID: 50166518789665364, guid: f93290c4c5e306245b6f3b8de80464a1,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50166518789665364, guid: f93290c4c5e306245b6f3b8de80464a1,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   m_IsPrefabParent: 0
@@ -2214,7 +2198,7 @@ GameObject:
   - component: {fileID: 1537136036}
   m_Layer: 0
   m_Name: Stars
-  m_TagString: Untagged
+  m_TagString: Stars Parent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2877,31 +2861,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4886970915664640, guid: f93290c4c5e306245b6f3b8de80464a1,
     type: 2}
   m_PrefabInternal: {fileID: 2018311077}
---- !u!1 &2114761014 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1844278647492636, guid: f93290c4c5e306245b6f3b8de80464a1,
-    type: 2}
-  m_PrefabInternal: {fileID: 198376450}
---- !u!50 &2114761015
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2114761014}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &2121250123
 Prefab:
   m_ObjectHideFlags: 0

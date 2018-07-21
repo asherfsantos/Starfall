@@ -90,12 +90,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  topLeft: {x: -7, y: 5, z: 0}
+  topLeft: {x: -1.5, y: 7, z: 0}
   bottomRight: {x: 19.5, y: -5, z: 0}
   purpleStar: {fileID: 21300000, guid: d0113bbf8d3803c45865914a0c5004c4, type: 3}
   pinkStar: {fileID: 21300000, guid: 61914e2312002f249b192e1aaf684612, type: 3}
   whiteStar: {fileID: 21300000, guid: d3c964d528d529944ba4d61be50d0cfd, type: 3}
   starRenderer: {fileID: 212729257857752334}
+  playerBody: {fileID: 0}
 --- !u!212 &212729257857752334
 SpriteRenderer:
   m_ObjectHideFlags: 1

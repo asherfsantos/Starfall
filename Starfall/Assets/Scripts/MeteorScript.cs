@@ -24,10 +24,19 @@ public class MeteorScript : MonoBehaviour
 			MeteorTimer();
 	}
 
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Player"))
+		{
+			
+		}
+	}
+
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if(other.gameObject.CompareTag("Player"))
 		{
+			//player.transform.position = transform.position;
 			onMeteor = true;
 			StartTimer();
 		}
@@ -54,7 +63,7 @@ public class MeteorScript : MonoBehaviour
 	void ReduceFuel()
 	{
 		if(playerScript.jumpsRemaining == 0)
-			playerScript.FreezePlayer();
+			playerScript.PlayerDies();
 		else
 		{
 			landingTime = Time.time;

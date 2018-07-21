@@ -7,7 +7,7 @@ public class CometScript : MonoBehaviour
 	public GameObject player;
 	public PlayerMovement playerScript;
 	public bool onComet = false;
-	private float landingTime;
+	public float landingTime;
 	private float exitTime;
 	public float timeLimit = 3.0f;
 	public float freezeDuration = 3.0f;
@@ -35,6 +35,7 @@ public class CometScript : MonoBehaviour
 		if(other.gameObject.CompareTag("Player"))
 		{
 			onComet = true;
+			playerScript.canLand = false;
 			StartCometTimer();
 		}
 	}
@@ -42,7 +43,7 @@ public class CometScript : MonoBehaviour
 	private void OnCollisionExit2D(Collision2D other)
 	{
 		onComet = false;
-		EndTimer();
+		//EndTimer();
 	}
 
 	void StartCometTimer()
@@ -55,12 +56,12 @@ public class CometScript : MonoBehaviour
 		}
 	}
 
-	void EndTimer()
+	/*void EndTimer()
 	{
 		exitTime = Time.time;
-	}
+	}*/
 
-	void startFrozenTimer()
+	/*void startFrozenTimer()
 	{
 		if(Time.time < frozenEndTime)
 			frozen = true;
@@ -69,24 +70,27 @@ public class CometScript : MonoBehaviour
 			print("Player Unfrozen");
 			frozen = false;
 		}
-	}
+	}*/
 
-	void ResetTimers()
+	/*void ResetTimers()
 	{
 		StartCometTimer();
-	}
+	}*/
 
 	void CheckFrozen()
 	{
 		if(onComet)
 		{
-			if(Time.time > frozenStartTime && Time.time < frozenEndTime)
+			if(Time.time > frozenStartTime && Time.time < frozenEndTime )
 			{
+				//print(Time.time);
 				frozen = true;
 			}
 			else			
 			{
 				frozen = false;
+				//StartCometTimer();
+				//frozenStartTime = Time.time + 1.0f;
 			}
 		}
 		if(frozen)
@@ -94,12 +98,14 @@ public class CometScript : MonoBehaviour
 			frozen = true;
 			//print("Frozen");
 			playerScript.FreezePlayer();
+			//playerScript.PlayerDies();
 		}
-		if(!frozen)
+		if(!frozen && onComet)
 		{
 			frozen = false;
 			//print("Unfrozen");
 			playerScript.UnfreezePlayer();
+			//StartCometTimer();
 		}
 	}
 }

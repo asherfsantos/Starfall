@@ -81,11 +81,11 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
-		if(other.gameObject.CompareTag("Black Hole"))
+		/*if(other.gameObject.CompareTag("Black Hole"))
 			if(canLand)
-				BlackHoleDeath(other);
-		if(other.gameObject.CompareTag("Asteroid"))
-			AsteroidDeath(other);
+				BlackHoleDeath(other);*/
+		/*if(other.gameObject.CompareTag("Asteroid"))
+			AsteroidDeath(other);*/
 			
 	}
 
@@ -164,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
 		playerRenderer.sprite = deathSprite;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;
+		canLand = false;
 	}
 
 	public void FreezePlayer()
@@ -176,23 +177,24 @@ public class PlayerMovement : MonoBehaviour
 
 	public void UnfreezePlayer()
 	{
+		print("Player Unfroze");
 		playerRenderer.sprite = idleSprite;
 		//playerBody.constraints = RigidbodyConstraints2D.None;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
 		canMove = true;
 	}
 
-	public void BlackHoleDeath(Collider2D blackHole)
+	/*public void BlackHoleDeath(Collider2D blackHole)
 	{
 		transform.position = blackHole.transform.position;
 		playerRenderer.sprite = deathSprite;
-	}
+	}*/
 
-	public void AsteroidDeath(Collider2D asteroid)
+	/*public void AsteroidDeath(Collider2D asteroid)
 	{
 		transform.position = asteroid.transform.position;
 		playerRenderer.sprite = deathSprite;
-	}
+	}*/
 
 	public float CalculateProgress()
 	{

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114640011631770562}
   - component: {fileID: 50257956274814894}
   - component: {fileID: 251984912215514386}
+  - component: {fileID: 95395935266609472}
   m_Layer: 8
   m_Name: Comet
   m_TagString: Comet
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1527902095015694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 2.8, z: 25.539413}
+  m_LocalPosition: {x: -5.17, y: 9.45, z: 25.53941}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,6 +90,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.9826317, y: 0.7336879}
   m_EdgeRadius: 0
+--- !u!95 &95395935266609472
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527902095015694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f7efbef30a9a244c9fbed635a25d167, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114640011631770562
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -147,7 +147,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private void HandleInput()
 	{
-		print("Input");
 		if(canMove)
 		{
 			if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))

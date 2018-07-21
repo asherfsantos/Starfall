@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4886970915664640}
   - component: {fileID: 212729257857752334}
-  - component: {fileID: 61596816145117164}
   - component: {fileID: 114246350792675168}
-  - component: {fileID: 50166518789665364}
+  - component: {fileID: 58012877802067452}
+  - component: {fileID: 50651707371717628}
   m_Layer: 8
   m_Name: Star
   m_TagString: Star
@@ -36,14 +36,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844278647492636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6, y: -0.57, z: 0}
-  m_LocalScale: {x: 0.5265523, y: 0.5265523, z: 0.5265523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.598822, y: 0.600221, z: 0.421875}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50166518789665364
+--- !u!50 &50651707371717628
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61596816145117164
-BoxCollider2D:
+--- !u!58 &58012877802067452
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,18 +76,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 2.5, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.29, y: 2.2}
-  m_EdgeRadius: 0
+  m_Radius: 1
 --- !u!114 &114246350792675168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,12 +90,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  topLeft: {x: -7, y: 5, z: 0}
+  topLeft: {x: -1.5, y: 7, z: 0}
   bottomRight: {x: 19.5, y: -5, z: 0}
   purpleStar: {fileID: 21300000, guid: d0113bbf8d3803c45865914a0c5004c4, type: 3}
   pinkStar: {fileID: 21300000, guid: 61914e2312002f249b192e1aaf684612, type: 3}
   whiteStar: {fileID: 21300000, guid: d3c964d528d529944ba4d61be50d0cfd, type: 3}
   starRenderer: {fileID: 212729257857752334}
+  playerBody: {fileID: 0}
 --- !u!212 &212729257857752334
 SpriteRenderer:
   m_ObjectHideFlags: 1

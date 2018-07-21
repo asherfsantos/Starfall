@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 	public Animator myAnim;
 	public bool falling;
 	public bool movingToCenter;
+	private Vector3 velocity = Vector3.zero;
+	public bool canMove = true;
+
 
 	// Use this for initialization
 	void Start () 
@@ -35,27 +38,34 @@ public class PlayerMovement : MonoBehaviour
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
 		myAnim = player.GetComponent<Animator>();
+		levelStartPos = GameObject.FindWithTag("Startpoint").transform.position.x;
+		levelEndPos = GameObject.FindWithTag("Endpoint").transform.position.x;
+		jumpsRemaining = maxJumps;
+		canMove = true;
+
 	}
 	
 	void FixedUpdate()
 	{
 		moveInput = Input.GetAxis("Horizontal");
-		playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
-
-		if(!facingRight && moveInput > 0)
-			Flip();
-		else if(facingRight && moveInput < 0)
-			Flip();
-		//print("Progress: " + CalculateProgress().ToString("F2"));
+		if(canMove)
+		{
+			playerBody.velocity = new Vector2(moveInput * speed, playerBody.velocity.y);
+			if(!facingRight && moveInput > 0)
+				Flip();
+			else if(facingRight && moveInput < 0)
+				Flip();
+		}
 
 		myAnim.SetBool ("falling", falling);
 		myAnim.SetBool ("onStar", onStar);
+		HandleMovements();
+		HandleInput();
 	}
 	// Update is called once per frame
 	void Update () 
 	{
-		HandleMovements();
-		HandleInput();
+		
 	}
 
 	void Flip()
@@ -71,13 +81,11 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
-		if(other.gameObject.CompareTag("Meteor"))
-			other.gameObject.GetComponent<MeteorScript>().onMeteor = true;
-		if(other.gameObject.CompareTag("Black Hole"))
+		/*if(other.gameObject.CompareTag("Black Hole"))
 			if(canLand)
-				BlackHoleDeath(other);
-		if(other.gameObject.CompareTag("Asteroid"))
-			AsteroidDeath(other);
+				BlackHoleDeath(other);*/
+		/*if(other.gameObject.CompareTag("Asteroid"))
+			AsteroidDeath(other);*/
 			
 	}
 
@@ -97,47 +105,52 @@ public class PlayerMovement : MonoBehaviour
 		//MoveTowardCenter();
 
 		//if(movingToCenter == false)
+		playerBody.gravityScale = 0;
 		transform.position = currentStar.transform.position;
 	}
 
 	private void MoveTowardCenter()
 	{
-		if (transform.position == Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime)))
-		{
-			MoveWithStar();
-			//transform.position = currentStar.transform.position;
-		}
-		else
-		{
-			transform.position = Vector3.MoveTowards(transform.position, currentStar.transform.position, (4.0f * Time.deltaTime));
-		}
-		//MoveWithStar();
+
+		playerBody.gravityScale = 0;
+        transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 	}
 
 	// manipulate player position
 	private void HandleMovements()
 	{
 		// if riding a star, move player position with it
+		//if(onStar)
+		//	MoveTowardCenter();
 		if(onStar)
-			MoveTowardCenter();
+		{
 			//MoveWithStar();
+			playerBody.gravityScale = 0;
+			MoveTowardCenter();
+		}
 	}
 
 	private void HandleInput()
 	{
-		if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+		if(canMove)
 		{
+			if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+			{
+				playerBody.gravityScale = 0.5f;
+				canLand = false;
+				onStar = false;
+				playerBody.velocity = Vector2.up * jumpForce;
+				jumpsRemaining--;
+				falling = false;
+			}
+			else if(Input.GetKeyUp(KeyCode.Space))
+			{
+				canLand = true;
+				falling = true;
+			}
+		}
+		if(!canMove)
 			canLand = false;
-			onStar = false;
-			playerBody.velocity = Vector2.up * jumpForce;
-			jumpsRemaining--;
-			falling = false;
-		}
-		else if(Input.GetKeyUp(KeyCode.Space))
-		{
-			canLand = true;
-			falling = true;
-		}
 	}
 
 	private void RefillFuel()
@@ -147,30 +160,41 @@ public class PlayerMovement : MonoBehaviour
 
 	public void PlayerDies()
 	{
+		print("Player Died");
 		playerRenderer.sprite = deathSprite;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
+		canMove = false;
+		canLand = false;
 	}
 
 	public void FreezePlayer()
 	{
+		print("Player Froze");
 		playerRenderer.sprite = frozenSprite;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
+		canMove = false;
 	}
 
 	public void UnfreezePlayer()
 	{
+		print("Player Unfroze");
 		playerRenderer.sprite = idleSprite;
+		//playerBody.constraints = RigidbodyConstraints2D.None;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+		canMove = true;
 	}
 
-	public void BlackHoleDeath(Collider2D blackHole)
+	/*public void BlackHoleDeath(Collider2D blackHole)
 	{
 		transform.position = blackHole.transform.position;
 		playerRenderer.sprite = deathSprite;
-	}
+	}*/
 
-	public void AsteroidDeath(Collider2D asteroid)
+	/*public void AsteroidDeath(Collider2D asteroid)
 	{
 		transform.position = asteroid.transform.position;
 		playerRenderer.sprite = deathSprite;
-	}
+	}*/
 
 	public float CalculateProgress()
 	{

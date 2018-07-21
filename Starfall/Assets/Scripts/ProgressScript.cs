@@ -6,26 +6,21 @@ using UnityEngine.UI;
 public class ProgressScript : MonoBehaviour 
 {
 
-	public float progress;
-	public Text progressText; 
 	public GameObject player;
 	public PlayerMovement playerData;
+	public Slider progressBar;
+	
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
 		playerData = player.GetComponent<PlayerMovement>();
+		progressBar.value = playerData.CalculateProgress();
 	}
 	
 
 	void FixedUpdate () 
 	{
-		progress = playerData.CalculateProgress();
-		SetProgressText();
-	}
-
-	void SetProgressText()
-	{
-		progressText.text = "Progress: " + progress.ToString("F2");
+		progressBar.value = playerData.CalculateProgress();
 	}
 }

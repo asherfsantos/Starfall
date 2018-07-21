@@ -6,27 +6,28 @@ public class CometScript : MonoBehaviour
 {
 	public GameObject player;
 	public PlayerMovement playerScript;
-	private float landingTime;
-	public float timeLimit = 3.0f;
 	public bool onComet = false;
+	public float landingTime;
+	private float exitTime;
+	public float timeLimit = 3.0f;
 	public float freezeDuration = 3.0f;
 	public float frozenStartTime;
 	public float frozenEndTime;
 	public bool frozen = false;
-	public Vector3 frozenPosition;
+	public bool timerOn = false;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerScript = player.GetComponent<PlayerMovement>();
+		frozen = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(onComet)
-			CometTimer();
+		CheckFrozen();
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -34,52 +35,77 @@ public class CometScript : MonoBehaviour
 		if(other.gameObject.CompareTag("Player"))
 		{
 			onComet = true;
-			StartTimer();
+			playerScript.canLand = false;
+			StartCometTimer();
 		}
 	}
 
 	private void OnCollisionExit2D(Collision2D other)
 	{
 		onComet = false;
+		//EndTimer();
 	}
 
-	void StartTimer()
+	void StartCometTimer()
 	{
-		landingTime = Time.time;
-	}
-
-	void CometTimer()
-	{
-		if(Time.time > landingTime + timeLimit)
+		if(onComet)
 		{
-			frozenStartTime = Time.time;
+			landingTime = Time.time;
+			frozenStartTime = landingTime + timeLimit;
 			frozenEndTime = frozenStartTime + freezeDuration;
-			frozenPosition = player.transform.position;
-			FreezePlayer();
 		}
-		else
-			frozen = false;
-
 	}
 
-	void FreezePlayer()
+	/*void EndTimer()
+	{
+		exitTime = Time.time;
+	}*/
+
+	/*void startFrozenTimer()
 	{
 		if(Time.time < frozenEndTime)
-		{
 			frozen = true;
-			print("Player Frozen");
-			playerScript.FreezePlayer();
-		}	
 		if(Time.time > frozenEndTime)
 		{
+			print("Player Unfrozen");
 			frozen = false;
-			print("Player unfrozen");
-			playerScript.UnfreezePlayer();
+		}
+	}*/
+
+	/*void ResetTimers()
+	{
+		StartCometTimer();
+	}*/
+
+	void CheckFrozen()
+	{
+		if(onComet)
+		{
+			if(Time.time > frozenStartTime && Time.time < frozenEndTime )
+			{
+				//print(Time.time);
+				frozen = true;
+			}
+			else			
+			{
+				frozen = false;
+				//StartCometTimer();
+				//frozenStartTime = Time.time + 1.0f;
+			}
 		}
 		if(frozen)
 		{
-			player.transform.position = frozenPosition;
-			//or disable input
-		}	
+			frozen = true;
+			//print("Frozen");
+			playerScript.FreezePlayer();
+			//playerScript.PlayerDies();
+		}
+		if(!frozen && onComet)
+		{
+			frozen = false;
+			//print("Unfrozen");
+			playerScript.UnfreezePlayer();
+			//StartCometTimer();
+		}
 	}
 }

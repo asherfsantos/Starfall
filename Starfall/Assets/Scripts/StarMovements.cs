@@ -7,17 +7,19 @@ public class StarMovements : MonoBehaviour
 	public float movementSpeed;
 	GameObject player;
 	PlayerMovement playerData;
-	public Vector3 topLeft = new Vector3(-1.0f, 7.0f);
+	public Vector3 topLeft = new Vector3(-1.5f, 7.0f);
 	public Vector3 bottomRight = new Vector3(81.0f, -8.0f);
 	public Sprite purpleStar, pinkStar, whiteStar;
 	public SpriteRenderer starRenderer;
 	private bool colorChosen = false;
+	public Rigidbody2D playerBody;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player");
 		playerData = player.GetComponent<PlayerMovement>();
+		playerBody = player.GetComponent<Rigidbody2D>();
 		movementSpeed = Random.Range(0.5f, 3.0f);
 		starRenderer = GetComponent<SpriteRenderer>();
 		StarColor();
@@ -35,7 +37,10 @@ public class StarMovements : MonoBehaviour
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, topLeft, step);
 		if(transform.position == topLeft)
+		{	
+			SetPlayerOffStar();
 			Destroy(gameObject);
+		}
 	}
 
 	void OnTriggerStay2D(Collider2D other)
@@ -52,15 +57,15 @@ public class StarMovements : MonoBehaviour
 		{
 			if(movementSpeed < other.GetComponent<StarMovements>().movementSpeed)
 			{
-				Destroy(gameObject);
 				if(playerData.currentStar == gameObject)
 					SetPlayerOffStar();
+				Destroy(gameObject);
 			}
 			else
 			{
-				Destroy(other);
 				if(playerData.currentStar == other)
 					SetPlayerOffStar();
+				Destroy(other);
 			}
 		}
 	}
@@ -69,6 +74,7 @@ public class StarMovements : MonoBehaviour
 	{
 		playerData.onStar = false;
 		playerData.canLand = true;
+		playerBody.gravityScale = 0.5f;
 	}
 
 	void DestroyOffScreen()

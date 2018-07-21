@@ -30,8 +30,8 @@ public class AsteroidMovements : MonoBehaviour
 	{
 		if(other.gameObject.CompareTag("Star"))	
 			DestroyBoth(other.gameObject);
-		/*if(other.gameObject.CompareTag("Player"))	
-			playerScript.PlayerDies();*/
+		if(other.gameObject.CompareTag("Player"))	
+			playerScript.PlayerDies();
 		if(other.gameObject.CompareTag("Asteroid"))
 			DestroyBoth(other.gameObject);
 	}

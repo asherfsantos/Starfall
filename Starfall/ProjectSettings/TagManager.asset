@@ -11,6 +11,12 @@ TagManager:
   - Comet
   - Black Hole
   - Background
+  - Endpoint
+  - Startpoint
+  - Main Menu
+  - Loading Canvas
+  - Main Menu Canvas
+  - Stars Parent
   layers:
   - Default
   - TransparentFX

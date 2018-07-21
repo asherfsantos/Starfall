@@ -81,8 +81,6 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
-		if(other.gameObject.CompareTag("Meteor"))
-			other.gameObject.GetComponent<MeteorScript>().onMeteor = true;
 		if(other.gameObject.CompareTag("Black Hole"))
 			if(canLand)
 				BlackHoleDeath(other);
@@ -162,13 +160,15 @@ public class PlayerMovement : MonoBehaviour
 
 	public void PlayerDies()
 	{
+		print("Player Died");
 		playerRenderer.sprite = deathSprite;
-		canMove = false;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
+		canMove = false;
 	}
 
 	public void FreezePlayer()
 	{
+		print("Player Froze");
 		playerRenderer.sprite = frozenSprite;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;

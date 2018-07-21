@@ -54,7 +54,7 @@ public class MeteorScript : MonoBehaviour
 	void ReduceFuel()
 	{
 		if(playerScript.jumpsRemaining == 0)
-			playerScript.PlayerDies();
+			playerScript.FreezePlayer();
 		else
 		{
 			landingTime = Time.time;

@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261616146494826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.876621, y: 4.450813, z: 0}
+  m_LocalPosition: {x: 0.76, y: 2.67, z: 0}
   m_LocalScale: {x: 0.07107851, y: 0.06772339, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,6 +180,10 @@ MonoBehaviour:
   falling: 0
   movingToCenter: 0
   canMove: 1
+  startTime: 0
+  gameDuration: 120
+  timeLeft: 0
+  pausePanel: {fileID: 0}
 --- !u!212 &212318984171719228
 SpriteRenderer:
   m_ObjectHideFlags: 1

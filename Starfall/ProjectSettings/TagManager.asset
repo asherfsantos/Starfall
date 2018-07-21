@@ -17,6 +17,8 @@ TagManager:
   - Loading Canvas
   - Main Menu Canvas
   - Stars Parent
+  - Pause Menu
+  - Pause Panel
   layers:
   - Default
   - TransparentFX

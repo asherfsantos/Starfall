@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool movingToCenter;
 	private Vector3 velocity = Vector3.zero;
 	public bool canMove = true;
+	public float gameDuration = 120.0f;
+	public float timeLeft;
+	public GameObject pausePanel;
 
 
 	// Use this for initialization
@@ -42,11 +45,14 @@ public class PlayerMovement : MonoBehaviour
 		levelEndPos = GameObject.FindWithTag("Endpoint").transform.position.x;
 		jumpsRemaining = maxJumps;
 		canMove = true;
-
+		timeLeft = gameDuration;
+		pausePanel = GameObject.FindWithTag("Pause Panel");
+		pausePanel.SetActive(false);
 	}
 	
 	void FixedUpdate()
 	{
+		UpdateTime();
 		moveInput = Input.GetAxis("Horizontal");
 		if(canMove)
 		{
@@ -60,12 +66,12 @@ public class PlayerMovement : MonoBehaviour
 		myAnim.SetBool ("falling", falling);
 		myAnim.SetBool ("onStar", onStar);
 		HandleMovements();
-		HandleInput();
+		//HandleInput();
 	}
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		HandleInput();
 	}
 
 	void Flip()
@@ -199,5 +205,23 @@ public class PlayerMovement : MonoBehaviour
 	public float CalculateProgress()
 	{
 		return transform.position.x / (levelEndPos - levelStartPos);
+	}
+
+	public void UpdateTime()
+	{
+		if(!pausePanel.activeSelf)
+		{
+			timeLeft -= Time.deltaTime;
+			print(timeLeft);
+			CheckTime();
+		}
+	}
+
+	public void CheckTime()
+	{
+		if(timeLeft <= 0.0f)
+		{
+			PlayerDies();
+		}
 	}
 }

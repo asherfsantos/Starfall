@@ -177,7 +177,8 @@ public class PlayerMovement : MonoBehaviour
 	public void UnfreezePlayer()
 	{
 		playerRenderer.sprite = idleSprite;
-		playerBody.constraints = RigidbodyConstraints2D.None;
+		//playerBody.constraints = RigidbodyConstraints2D.None;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
 		canMove = true;
 	}
 

@@ -212,7 +212,6 @@ public class PlayerMovement : MonoBehaviour
 		if(!pausePanel.activeSelf)
 		{
 			timeLeft -= Time.deltaTime;
-			print(timeLeft);
 			CheckTime();
 		}
 	}

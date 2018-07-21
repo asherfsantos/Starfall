@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		count = 3;
+		//count = 3;
 		//jetPack.text = "count:" + count.ToString();
 	}
 	

@@ -11,7 +11,6 @@ public class StarMovements : MonoBehaviour
 	public Vector3 bottomRight = new Vector3(81.0f, -8.0f);
 	public Sprite purpleStar, pinkStar, whiteStar;
 	public SpriteRenderer starRenderer;
-	private bool colorChosen = false;
 	public Rigidbody2D playerBody;
 
 	// Use this for initialization
@@ -98,7 +97,6 @@ public class StarMovements : MonoBehaviour
 				starRenderer.sprite = pinkStar;
 				break;
 		}
-		colorChosen = true;
 		
 	}
 }

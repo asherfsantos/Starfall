@@ -19,6 +19,7 @@ TagManager:
   - Stars Parent
   - Pause Menu
   - Pause Panel
+  - Timer Bar
   layers:
   - Default
   - TransparentFX

@@ -180,7 +180,6 @@ MonoBehaviour:
   falling: 0
   movingToCenter: 0
   canMove: 1
-  startTime: 0
   gameDuration: 120
   timeLeft: 0
   pausePanel: {fileID: 0}

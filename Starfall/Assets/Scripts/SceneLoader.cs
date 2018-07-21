@@ -43,7 +43,8 @@ public class SceneLoader : MonoBehaviour
 		{
 			loadingSlider.value = async.progress;
 			//print(loadingSlider.value);
-			yield return new WaitForSeconds(5);
+			//yield return new WaitForSeconds(5);
+			yield return new WaitForSecondsRealtime(3);
 			if(async.progress == 0.9f)
 			{
 				loadingSlider.value = 1.0f;

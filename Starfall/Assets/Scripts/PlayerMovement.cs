@@ -176,16 +176,22 @@ public class PlayerMovement : MonoBehaviour
 	public void PlayerDies()
 	{
 		playerRenderer.sprite = deathSprite;
+		canMove = false;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 	}
 
 	public void FreezePlayer()
 	{
 		playerRenderer.sprite = frozenSprite;
+		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
+		canMove = false;
 	}
 
 	public void UnfreezePlayer()
 	{
 		playerRenderer.sprite = idleSprite;
+		playerBody.constraints = RigidbodyConstraints2D.None;
+		canMove = true;
 	}
 
 	public void BlackHoleDeath(Collider2D blackHole)

@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 	public float gameDuration = 120.0f;
 	public float timeLeft;
 	public GameObject pausePanel;
+	public GameObject diedMenu;
 
 
 	// Use this for initialization
@@ -48,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
 		timeLeft = gameDuration;
 		pausePanel = GameObject.FindWithTag("Pause Panel");
 		pausePanel.SetActive(false);
+		diedMenu = GameObject.FindWithTag("Died Menu");
+		diedMenu.SetActive(false);
 	}
 	
 	void FixedUpdate()
@@ -87,12 +90,18 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
-		/*if(other.gameObject.CompareTag("Black Hole"))
-			if(canLand)
-				BlackHoleDeath(other);*/
-		/*if(other.gameObject.CompareTag("Asteroid"))
-			AsteroidDeath(other);*/
-			
+		if(other.gameObject.CompareTag("Wall"))
+		{
+			canMove = false;
+			Invoke("PlayerDies", 2.0f);
+			Invoke("EnablePauseMenu", 2.0f);
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if(other.gameObject.tag == "Wall")
+			PlayerDies();
 	}
 
 	private void LandOnStar(GameObject star)
@@ -171,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;
 		canLand = false;
+		diedMenu.SetActive(true);
 	}
 
 	public void FreezePlayer()
@@ -222,5 +232,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			PlayerDies();
 		}
+	}
+
+	public void EnablePauseMenu()
+	{
+		diedMenu.SetActive(true);
 	}
 }

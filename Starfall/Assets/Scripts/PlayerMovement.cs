@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject diedMenu;
 	public AudioClip deathAudio;
 	public AudioSource gameplaySound;
+	public bool playerLiving = true;
 
 
 	// Use this for initialization
@@ -178,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
 	public void PlayerDies()
 	{
 		print("Player Died");
+		playerLiving = false;
 		gameplaySound.PlayOneShot(deathAudio, 0.08f);
 		playerRenderer.sprite = deathSprite;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -197,10 +199,12 @@ public class PlayerMovement : MonoBehaviour
 	public void UnfreezePlayer()
 	{
 		print("Player Unfroze");
-		playerRenderer.sprite = idleSprite;
-		//playerBody.constraints = RigidbodyConstraints2D.None;
-		playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-		canMove = true;
+		if(playerLiving)
+		{
+			playerRenderer.sprite = idleSprite;
+			playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+			canMove = true;
+		}
 	}
 
 	/*public void BlackHoleDeath(Collider2D blackHole)

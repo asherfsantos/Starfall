@@ -7,7 +7,7 @@ public class StarSpawns : MonoBehaviour
 	public GameObject star;
 	public float nextSpawn = 0.0f;
 	public float spawnRate = 1.0f;
-	public float spawnLocationX = 81.0f;
+	public float spawnLocationX = 91.0f;
 	public float upperY = -4.0f;
 	public float lowerY = -8.0f;
 	public float randomY;

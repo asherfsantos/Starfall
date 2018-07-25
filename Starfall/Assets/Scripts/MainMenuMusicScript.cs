@@ -41,6 +41,5 @@ public class MainMenuMusicScript : MonoBehaviour
 	void ResetBool()
 	{
 		musicDone = true;	
-		print(musicDone);
 	}
 }

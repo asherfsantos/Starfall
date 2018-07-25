@@ -1913,12 +1913,6 @@ RectTransform:
   m_AnchoredPosition: {x: 8.9, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &649262391 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114807248435227000, guid: b797619048e372c43a0cf701a0a61118,
-    type: 2}
-  m_PrefabInternal: {fileID: 693065576}
-  m_Script: {fileID: 11500000, guid: bf6cd742662bef8499094aeed48d9d44, type: 3}
 --- !u!1 &688984397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,17 +2467,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 649262391}
-        m_MethodName: LoadScreen
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1068879932}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -2495,8 +2478,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 649262391}
-        m_MethodName: DisableMainMenu
+      - m_Target: {fileID: 1383746103}
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

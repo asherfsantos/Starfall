@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				playerLiving = false;
 				canMove = false;
-				Invoke("PlayerDies", 2.0f);
+				Invoke("PlayerDies", 1.5f);
 				Invoke("EnablePauseMenu", 2.0f);
 			}
 		}

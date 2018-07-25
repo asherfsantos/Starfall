@@ -95,9 +95,13 @@ public class PlayerMovement : MonoBehaviour
 			LandOnStar(other.gameObject);
 		if(other.gameObject.CompareTag("Wall"))
 		{
-			canMove = false;
-			Invoke("PlayerDies", 2.0f);
-			Invoke("EnablePauseMenu", 2.0f);
+			if(playerLiving)
+			{
+				playerLiving = false;
+				canMove = false;
+				Invoke("PlayerDies", 2.0f);
+				Invoke("EnablePauseMenu", 2.0f);
+			}
 		}
 	}
 

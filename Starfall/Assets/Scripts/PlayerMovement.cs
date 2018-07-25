@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 	public float timeLeft;
 	public GameObject pausePanel;
 	public GameObject diedMenu;
+	public AudioClip deathAudio;
+	public AudioSource gameplaySound;
 
 
 	// Use this for initialization
@@ -176,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
 	public void PlayerDies()
 	{
 		print("Player Died");
+		gameplaySound.PlayOneShot(deathAudio, 0.08f);
 		playerRenderer.sprite = deathSprite;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;

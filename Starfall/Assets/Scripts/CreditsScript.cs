@@ -15,18 +15,22 @@ public class CreditsScript : MonoBehaviour
 	public int counter;
 	public float canvasTime;
 	public CanvasGroup currentCanvas;
+	public bool fadingOut;
 	// Use this for initialization
 	void Start () 
 	{
+		fadingOut = false;
 		canvasList = new List<CanvasGroup>(new CanvasGroup[]{canvas1, canvas2, canvas3, canvas4, canvas5, canvas6});
 		counter = 0;
 		canvasTime = 15.36f;
 		foreach(CanvasGroup canvas in canvasList)
 		{
 			canvas.gameObject.SetActive(false);
+			canvas.alpha = 0;
 		}
 		currentCanvas = canvasList[counter];
 		canvasList[counter].gameObject.SetActive(true);
+		FadeCreditsIn();
 		Invoke("NextCanvas",canvasTime);
 	}
 	
@@ -41,9 +45,26 @@ public class CreditsScript : MonoBehaviour
 		if(counter < canvasList.Count-1)
 		{
 			print(canvasList[counter]);
-			canvasList[counter].gameObject.SetActive(false);
 			canvasList[++counter].gameObject.SetActive(true);
+			FadeCreditsIn();
 			Invoke("NextCanvas", canvasTime);
 		}
+	}
+
+	public void FadeCreditsIn()
+	{
+		StartCoroutine(FadeIn());
+	}
+
+	IEnumerator FadeIn()
+	{
+		CanvasGroup thisGroup = canvasList[counter].GetComponent<CanvasGroup>();
+		while(thisGroup.alpha<1)
+		{
+			thisGroup.alpha += Time.deltaTime / 2;
+			yield return null;
+		}
+		thisGroup.interactable = false;
+		yield return null;
 	}
 }

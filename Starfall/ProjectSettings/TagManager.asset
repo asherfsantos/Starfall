@@ -22,6 +22,8 @@ TagManager:
   - Timer Bar
   - Wall
   - Died Menu
+  - UITrigger
+  - CubeTrigger
   layers:
   - Default
   - TransparentFX

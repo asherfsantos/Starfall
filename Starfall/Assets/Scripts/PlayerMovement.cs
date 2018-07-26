@@ -214,8 +214,10 @@ public class PlayerMovement : MonoBehaviour
 			isFrozen = true;
 			iceParticles.GetComponent<ParticleSystem>().Play();
 			playerRenderer.sprite = frozenSprite;
-			Invoke("StopIce", 3.0f);
-			Invoke("RevertSprite", 3.0f);
+			Invoke("PauseIce", 1.0f);
+			Invoke("PlayIce", 3.0f);
+			//Invoke("StopIce", 3.0f);
+			//Invoke("RevertSprite", 3.0f);
 			StopMovements();
 		}
 	}
@@ -232,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
 		isFrozen = false;
 		if(playerLiving)
 		{
+			StopIce();
 			playerRenderer.sprite = idleSprite;
 			playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
 			canMove = true;
@@ -301,5 +304,15 @@ public class PlayerMovement : MonoBehaviour
 	public void StopIce()
 	{
 		iceParticles.GetComponent<ParticleSystem>().Stop();
+	}
+
+	public void PauseIce()
+	{
+		iceParticles.GetComponent<ParticleSystem>().Pause();
+	}
+
+	public void PlayIce()
+	{
+		iceParticles.GetComponent<ParticleSystem>().Play();
 	}
 }

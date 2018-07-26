@@ -9,7 +9,7 @@ public class CometScript : MonoBehaviour
 	public bool onComet = false;
 	public float landingTime;
 	private float exitTime;
-	public float timeLimit = 3.0f;
+	public float timeLimit = 1.5f;
 	public float freezeDuration = 3.0f;
 	public float frozenStartTime;
 	public float frozenEndTime;
@@ -22,6 +22,7 @@ public class CometScript : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerScript = player.GetComponent<PlayerMovement>();
 		frozen = false;
+		timeLimit = 1.5f;
 	}
 	
 	// Update is called once per frame

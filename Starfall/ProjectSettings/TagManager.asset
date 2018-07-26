@@ -25,6 +25,7 @@ TagManager:
   - UITrigger
   - CubeTrigger
   - FireParticles
+  - IceParticles
   layers:
   - Default
   - TransparentFX

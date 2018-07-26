@@ -304,6 +304,34 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1117280141458802, guid: e3ce8b7eccd99394db946e0c98933061, type: 2}
+      propertyPath: m_Name
+      value: RetryLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253710547059812, guid: e3ce8b7eccd99394db946e0c98933061, type: 2}
+      propertyPath: m_Name
+      value: ExitToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658345894388394, guid: e3ce8b7eccd99394db946e0c98933061,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746314470}
+    - target: {fileID: 114658345894388394, guid: e3ce8b7eccd99394db946e0c98933061,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786434147258588, guid: e3ce8b7eccd99394db946e0c98933061,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746314470}
+    - target: {fileID: 114786434147258588, guid: e3ce8b7eccd99394db946e0c98933061,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitToMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3ce8b7eccd99394db946e0c98933061, type: 2}
   m_IsPrefabParent: 0
@@ -1123,6 +1151,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &746314470 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114028909935967900, guid: ddb4f16d0d1f167449b5384994d94362,
+    type: 2}
+  m_PrefabInternal: {fileID: 1985940007}
+  m_Script: {fileID: 11500000, guid: 5b667226f20a6d54db195add74fc1dda, type: 3}
 --- !u!1001 &753677190
 Prefab:
   m_ObjectHideFlags: 0
@@ -1580,7 +1614,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4287659628408678, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -166.84
+      value: -186.7
       objectReference: {fileID: 0}
     - target: {fileID: 4287659628408678, guid: 78cad3a7507a43043822dfcf1796f736, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2091,7 +2125,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4407346609479938, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.43
+      value: -18.8
       objectReference: {fileID: 0}
     - target: {fileID: 4407346609479938, guid: db07a6ca2fbf2de448d178390985d258, type: 2}
       propertyPath: m_LocalPosition.y

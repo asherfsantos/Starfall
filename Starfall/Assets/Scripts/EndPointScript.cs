@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndPointScript : MonoBehaviour 
 {
@@ -34,7 +35,7 @@ public class EndPointScript : MonoBehaviour
 			if(!sceneLoading)
 			{
 				sceneLoading = true;
-				loader.LoadScreen(2);
+				loader.LoadScreen(SceneManager.GetActiveScene().buildIndex +1);
 			}
 		}
 	}

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool facingRight = false;
 	public int maxJumps;
 	public int jumpsRemaining;
-	public int playerProgress;
+	public float playerProgress;
 	public float levelStartPos = -35.0f;
 	public float levelEndPos = 45.0f;
 	public Animator myAnim;
@@ -255,7 +255,8 @@ public class PlayerMovement : MonoBehaviour
 
 	public float CalculateProgress()
 	{
-		return transform.position.x / (levelEndPos - levelStartPos);
+		playerProgress = transform.position.x / (levelEndPos - levelStartPos);
+		return playerProgress;
 	}
 
 	public void UpdateTime()

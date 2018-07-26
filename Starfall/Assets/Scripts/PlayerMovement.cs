@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 	public Transform fireParticles;
 	public Transform iceParticles;
 	public Sprite burntSprite;
+	public bool isFrozen;
 
 
 	// Use this for initialization
@@ -59,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
 		diedMenu.SetActive(false);
 		fireParticles = GameObject.FindWithTag("FireParticles").transform;
 		fireParticles.GetComponent<ParticleSystem>().Stop();
+		iceParticles = GameObject.FindWithTag("IceParticles").transform;
+		iceParticles.GetComponent<ParticleSystem>().Stop();
+		isFrozen = false;
 	}
 	
 	void FixedUpdate()
@@ -204,7 +208,20 @@ public class PlayerMovement : MonoBehaviour
 	public void FreezePlayer()
 	{
 		print("Player Froze");
-		playerRenderer.sprite = frozenSprite;
+		
+		if(!isFrozen)
+		{
+			isFrozen = true;
+			iceParticles.GetComponent<ParticleSystem>().Play();
+			playerRenderer.sprite = frozenSprite;
+			Invoke("StopIce", 3.0f);
+			Invoke("RevertSprite", 3.0f);
+			StopMovements();
+		}
+	}
+
+	public void StopMovements()
+	{
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;
 	}
@@ -212,6 +229,7 @@ public class PlayerMovement : MonoBehaviour
 	public void UnfreezePlayer()
 	{
 		print("Player Unfroze");
+		isFrozen = false;
 		if(playerLiving)
 		{
 			playerRenderer.sprite = idleSprite;
@@ -278,5 +296,10 @@ public class PlayerMovement : MonoBehaviour
 	public void RevertSprite()
 	{
 		playerRenderer.sprite = idleSprite;
+	}
+
+	public void StopIce()
+	{
+		iceParticles.GetComponent<ParticleSystem>().Stop();
 	}
 }

@@ -31,7 +31,7 @@ public class EndPointScript : MonoBehaviour
 			playerData.canLand = false;
 			playerData.canMove = false;
 			playerBody.position = transform.position;
-			playerData.FreezePlayer();
+			playerData.StopMovements();
 			if(!sceneLoading)
 			{
 				sceneLoading = true;

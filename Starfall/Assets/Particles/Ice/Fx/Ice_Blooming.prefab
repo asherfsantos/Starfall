@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 199000010301798316}
   - component: {fileID: 114000013321620900}
   m_Layer: 0
-  m_Name: Skill_boom
+  m_Name: Ice_Blooming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 198000012687111866}
   - component: {fileID: 199000010964571704}
   m_Layer: 0
-  m_Name: FlyIn_imn05
+  m_Name: Ice_Flying_Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 198000011457867750}
   - component: {fileID: 199000013599241948}
   m_Layer: 0
-  m_Name: Ground_Skill_imn05
+  m_Name: Ice_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

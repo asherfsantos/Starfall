@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013225896326}
   m_Layer: 0
-  m_Name: Skill
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

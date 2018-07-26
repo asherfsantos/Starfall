@@ -12,6 +12,7 @@ public class StarMovements : MonoBehaviour
 	public Sprite purpleStar, pinkStar, whiteStar;
 	public SpriteRenderer starRenderer;
 	public Rigidbody2D playerBody;
+	public Animator purpleAnimator, pinkAnimator, whiteAnimator;
 
 	// Use this for initialization
 	void Start () 

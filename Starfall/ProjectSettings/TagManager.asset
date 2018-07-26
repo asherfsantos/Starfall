@@ -24,6 +24,7 @@ TagManager:
   - Died Menu
   - UITrigger
   - CubeTrigger
+  - FireParticles
   layers:
   - Default
   - TransparentFX

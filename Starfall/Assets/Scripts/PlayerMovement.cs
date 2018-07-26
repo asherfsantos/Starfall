@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
 	public AudioClip deathAudio;
 	public AudioSource gameplaySound;
 	public bool playerLiving = true;
+	public Transform fireParticles;
+	public Transform iceParticles;
+	public Sprite burntSprite;
 
 
 	// Use this for initialization
@@ -54,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
 		pausePanel.SetActive(false);
 		diedMenu = GameObject.FindWithTag("Died Menu");
 		diedMenu.SetActive(false);
+		fireParticles = GameObject.FindWithTag("FireParticles").transform;
+		fireParticles.GetComponent<ParticleSystem>().Stop();
 	}
 	
 	void FixedUpdate()
@@ -252,5 +257,26 @@ public class PlayerMovement : MonoBehaviour
 	public void EnablePauseMenu()
 	{
 		diedMenu.SetActive(true);
+	}
+
+	public void PlayFire()
+	{
+		if(playerLiving)
+		{
+			fireParticles.GetComponent<ParticleSystem>().Play();
+			playerRenderer.sprite = burntSprite;
+			Invoke("StopFire", 1.0f);
+			Invoke("RevertSprite", 1.0f);
+		}
+	}
+
+	public void StopFire()
+	{
+		fireParticles.GetComponent<ParticleSystem>().Stop();
+	}
+
+	public void RevertSprite()
+	{
+		playerRenderer.sprite = idleSprite;
 	}
 }

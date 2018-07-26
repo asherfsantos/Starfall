@@ -62,12 +62,16 @@ public class MeteorScript : MonoBehaviour
 
 	void ReduceFuel()
 	{
-		if(playerScript.jumpsRemaining == 0)
+		if(playerScript.jumpsRemaining == 0 && playerScript.playerLiving)
+		{
+			playerScript.playerLiving = false;
 			playerScript.PlayerDies();
+		}
 		else
 		{
 			landingTime = Time.time;
 			playerScript.jumpsRemaining--;
+			playerScript.PlayFire();
 		}
 	}
 }

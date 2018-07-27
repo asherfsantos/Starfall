@@ -30,6 +30,7 @@ TagManager:
   - Meteors Parent
   - Comets Parent
   - Asteroids Parent
+  - FlameShuttle
   layers:
   - Default
   - TransparentFX

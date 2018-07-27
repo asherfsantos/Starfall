@@ -15,12 +15,16 @@ public class CometScript : MonoBehaviour
 	public float frozenEndTime;
 	public bool frozen = false;
 	public bool timerOn = false;
+	private Vector3 velocity = Vector3.zero;
+	public Rigidbody2D plyaerBody;
+	public bool timeSet;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerScript = player.GetComponent<PlayerMovement>();
+		plyaerBody = player.GetComponent<Rigidbody2D>();
 		frozen = false;
 		timeLimit = 1.5f;
 	}
@@ -31,14 +35,69 @@ public class CometScript : MonoBehaviour
 		CheckFrozen();
 	}
 
+	void FixedUpdate()
+	{
+		if(onComet)
+		{
+			MoveTowardCenterOfComet();
+		}
+	}
+
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if(other.gameObject.CompareTag("Player"))
 		{
+			print("collision");
 			onComet = true;
 			playerScript.canLand = false;
 			StartCometTimer();
 		}
+	}
+
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Player"))
+		{
+			if(!timeSet)
+			{
+				timeSet = true;
+				landingTime = Time.time;
+				frozenStartTime = landingTime + timeLimit;
+				frozenEndTime = frozenStartTime + freezeDuration;
+			}
+			print("collision");
+			//onComet = true;
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				playerScript.canLand = false;
+				onComet = false;
+			}
+			else
+			{
+				playerScript.canLand = true;
+				onComet = true;
+			}
+			StartCometTimer();
+		}
+	}
+
+	private void MoveTowardCenterOfComet()
+	{
+		Vector3 colliderPosition;
+		CircleCollider2D currentCollider;
+		currentCollider = gameObject.GetComponent<CircleCollider2D>();
+		colliderPosition = new Vector3(currentCollider.offset.x+0.1f, currentCollider.offset.y+0.1f, 0f);
+		plyaerBody.gravityScale = 0;
+        //transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
+		playerScript.transform.position = Vector3.SmoothDamp(playerScript.transform.position, transform.position + colliderPosition, ref velocity, 0.03f);
+	}
+
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		onComet = false;
+		playerScript.onComet = false;
+		timeSet = false;
+		plyaerBody.gravityScale = 0.5f;
 	}
 
 	private void OnCollisionExit2D(Collision2D other)
@@ -47,13 +106,26 @@ public class CometScript : MonoBehaviour
 		//EndTimer();
 	}
 
-	void StartCometTimer()
+	/*void StartCometTimer()
 	{
 		if(onComet)
 		{
 			landingTime = Time.time;
 			frozenStartTime = landingTime + timeLimit;
 			frozenEndTime = frozenStartTime + freezeDuration;
+		}
+	}*/
+
+	void StartCometTimer()
+	{
+		if(onComet)
+		{
+			if(!timeSet)
+			{
+				landingTime = Time.time;
+				frozenStartTime = landingTime + timeLimit;
+				frozenEndTime = frozenStartTime + freezeDuration;
+			}
 		}
 	}
 

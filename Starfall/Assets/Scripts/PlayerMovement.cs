@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
 	public Sprite burntSprite;
 	public bool isFrozen;
 	public ParticleSystem jetPackParticles;
+	public bool onComet;
+	public GameObject currentComet;
+	public GameObject comet;
 
 
 	// Use this for initialization
@@ -106,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
 		// set current star player is riding on
 		if(other.gameObject.CompareTag("Star"))
 			LandOnStar(other.gameObject);
+		/*if(other.gameObject.CompareTag("Comet"))
+			LandOnComet(other.gameObject);*/
 		if(other.gameObject.CompareTag("Wall"))
 		{
 			if(playerLiving)
@@ -167,6 +172,11 @@ public class PlayerMovement : MonoBehaviour
 			playerBody.gravityScale = 0;
 			MoveTowardCenter();
 		}
+		if(onComet)
+		{
+			playerBody.gravityScale = 0;
+			MoveTowardCenterOfComet();
+		}
 	}
 
 	private void HandleInput()
@@ -180,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
 				playerBody.gravityScale = 0.5f;
 				canLand = false;
 				onStar = false;
+				onComet = false;
 				playerBody.velocity = Vector2.up * jumpForce;
 				jumpsRemaining--;
 				falling = false;
@@ -248,18 +259,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	/*public void BlackHoleDeath(Collider2D blackHole)
-	{
-		transform.position = blackHole.transform.position;
-		playerRenderer.sprite = deathSprite;
-	}*/
-
-	/*public void AsteroidDeath(Collider2D asteroid)
-	{
-		transform.position = asteroid.transform.position;
-		playerRenderer.sprite = deathSprite;
-	}*/
-
 	public float CalculateProgress()
 	{
 		playerProgress = transform.position.x / (levelEndPos - levelStartPos);
@@ -322,5 +321,36 @@ public class PlayerMovement : MonoBehaviour
 	public void PlayIce()
 	{
 		iceParticles.Play();
+	}
+
+	public void HandleCometMovements()
+	{
+		if(onComet)
+		{
+			//MoveWithStar();
+			playerBody.gravityScale = 0;
+			MoveTowardCenterOfComet();
+		}
+	}
+
+	private void LandOnComet(GameObject comet)
+	{
+		if(canLand && !onComet)
+		{
+			currentComet = comet;
+			onComet = true;
+			HandleCometMovements();
+		}
+	}
+
+	private void MoveTowardCenterOfComet()
+	{
+		Vector3 colliderPosition;
+		CircleCollider2D currentCollider;
+		currentCollider = currentComet.GetComponent<CircleCollider2D>();
+		colliderPosition = new Vector3(currentCollider.offset.x, currentCollider.offset.y, 0f);
+		playerBody.gravityScale = 0;
+        //transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
+		transform.position = Vector3.SmoothDamp(transform.position, currentComet.transform.position + colliderPosition, ref velocity, 0.03f);
 	}
 }

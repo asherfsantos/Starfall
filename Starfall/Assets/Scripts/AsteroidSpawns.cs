@@ -39,7 +39,6 @@ public class AsteroidSpawns : MonoBehaviour
 			nextSpawn = Time.time + spawnRate;
 			randomY = Random.Range(lowerY, upperY);
 			spawnLocation = new Vector2(spawnLocationX, randomY);
-			//Instantiate(asteroid, spawnLocation, Quaternion.identity);
 			newAsteroid = Instantiate(asteroid, spawnLocation, Quaternion.identity);
 			newAsteroid.transform.parent = asteroidsParent.transform;
 		}

@@ -26,6 +26,7 @@ TagManager:
   - CubeTrigger
   - FireParticles
   - IceParticles
+  - JetPackparticles
   layers:
   - Default
   - TransparentFX

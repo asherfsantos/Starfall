@@ -8,6 +8,7 @@ public class FuelBarScript : MonoBehaviour
 	public GameObject player;
 	public PlayerMovement playerData;
 	public Slider fuelBar;
+	public Slider miniFuelBar;
 	// Use this for initialization
 	void Start () 
 	{
@@ -15,6 +16,7 @@ public class FuelBarScript : MonoBehaviour
 		playerData = player.GetComponent<PlayerMovement>();
 		SetFuelBar();
 		fuelBar.maxValue = playerData.maxJumps;
+		miniFuelBar.maxValue = playerData.maxJumps;
 	}
 	
 	// Update is called once per frame
@@ -26,5 +28,7 @@ public class FuelBarScript : MonoBehaviour
 	void SetFuelBar()
 	{
 		fuelBar.value = playerData.jumpsRemaining;
+		miniFuelBar.value = playerData.jumpsRemaining;
 	}
+
 }

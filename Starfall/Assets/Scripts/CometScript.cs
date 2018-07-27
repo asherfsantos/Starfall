@@ -26,7 +26,7 @@ public class CometScript : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerScript = player.GetComponent<PlayerMovement>();
 		playerBody = player.GetComponent<Rigidbody2D>();
-		version = gameObject.transform.parent.GetComponent<CometMovements>().cometVersion;
+		version = transform.GetComponent<CometMovements>().cometVersion;
 		frozen = false;
 		timeLimit = 1.5f;
 	}

@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool onComet;
 	public GameObject currentComet;
 	public GameObject comet;
+	public bool onMeteor;
 
 
 	// Use this for initialization
@@ -191,6 +192,7 @@ public class PlayerMovement : MonoBehaviour
 				canLand = false;
 				onStar = false;
 				onComet = false;
+				onMeteor = false;
 				playerBody.velocity = Vector2.up * jumpForce;
 				jumpsRemaining--;
 				falling = false;

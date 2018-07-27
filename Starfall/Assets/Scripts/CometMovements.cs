@@ -116,6 +116,6 @@ public class CometMovements : MonoBehaviour
 		colliderPosition = new Vector3(currentCollider.offset.x, currentCollider.offset.y, 0f);
 		playerBody.gravityScale = 0;
         //transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
-		transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position + colliderPosition, ref velocity, 0.03f);
+//		transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position + colliderPosition, ref velocity, 0.03f);
 	}
 }

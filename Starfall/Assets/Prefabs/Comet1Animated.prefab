@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95690557735830370}
   - component: {fileID: 114682401965828392}
   - component: {fileID: 114263623937588674}
-  - component: {fileID: 58457583276614298}
+  - component: {fileID: 58588461478628458}
   m_Layer: 8
   m_Name: Comet1Animated
   m_TagString: Comet
@@ -67,15 +67,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123011158638686}
-  m_LocalRotation: {x: -0, y: -0, z: 0.071467265, w: 0.99744296}
-  m_LocalPosition: {x: -34.96126, y: 13.031913, z: 0.03653105}
+  m_LocalRotation: {x: -0, y: -0, z: -0.04794374, w: -0.99885005}
+  m_LocalPosition: {x: -34.23, y: 14, z: 0.0730621}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4019722053159016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.1970005}
---- !u!58 &58457583276614298
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.4960003}
+--- !u!58 &58588461478628458
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +89,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -1.4, y: 0.9}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.7
 --- !u!95 &95690557735830370
 Animator:
   serializedVersion: 3
@@ -144,6 +144,7 @@ MonoBehaviour:
   topLeft: {x: -1.5, y: 7, z: 0}
   bottomRight: {x: 81, y: -8, z: 0}
   playerBody: {fileID: 0}
+  onComet: 0
 --- !u!198 &198577648971300960
 ParticleSystem:
   m_ObjectHideFlags: 1

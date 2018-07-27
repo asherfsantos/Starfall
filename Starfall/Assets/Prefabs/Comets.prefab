@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1283215199738142}
+  m_IsPrefabParent: 1
+--- !u!1 &1283215199738142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4003888054673344}
+  - component: {fileID: 114075059200085658}
+  m_Layer: 8
+  m_Name: Comets
+  m_TagString: Comets Parent
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4003888054673344
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283215199738142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.681263, y: -14.021913, z: -0.03653105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114075059200085658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283215199738142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed5c271430c5cd4688ff38fe25137e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comet: {fileID: 0}
+  comet1: {fileID: 1123011158638686, guid: f192b4815b9a9a34e966891b8dc07675, type: 2}
+  comet2: {fileID: 1027493187316718, guid: 6b265278ad7d8e1448c3b73885d9010b, type: 2}
+  nextSpawn: 0
+  spawnRate: 7
+  spawnLocationX: 91
+  upperY: -4
+  lowerY: -8
+  randomY: 0
+  spawnLocation: {x: 0, y: 0}
+  cometsParent: {fileID: 0}
+  newComet: {fileID: 0}

@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
 		myAnim.SetBool ("falling", falling);
 		myAnim.SetBool ("onStar", onStar);
+		myAnim.SetBool ("playerLiving", playerLiving);
 		HandleMovements();
 		//HandleInput();
 	}

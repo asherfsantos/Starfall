@@ -129,6 +129,8 @@ MonoBehaviour:
   frozenEndTime: 0
   frozen: 0
   timerOn: 0
+  plyaerBody: {fileID: 0}
+  timeSet: 0
 --- !u!114 &114855161732622592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +147,7 @@ MonoBehaviour:
   bottomRight: {x: 81, y: -8, z: 0}
   playerBody: {fileID: 0}
   onComet: 0
+  cometVersion: 2
 --- !u!198 &198110570893717816
 ParticleSystem:
   m_ObjectHideFlags: 1

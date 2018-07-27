@@ -16,11 +16,13 @@ public class CometSpawns : MonoBehaviour
 	public Vector2 spawnLocation;
 	public GameObject cometsParent;
 	public GameObject newComet;
+	public CometMovements script;
 
 	// Use this for initialization
 	void Start () 
 	{
 		cometsParent = GameObject.FindGameObjectWithTag("Comets Parent");
+		script = gameObject.GetComponent<CometMovements>();
 	}
 	
 	// Update is called once per frame
@@ -48,14 +50,23 @@ public class CometSpawns : MonoBehaviour
 		switch (randomNumber)
 		{
 			case 0:
+			{
 				comet = comet1;
+				script.cometVersion = 1;
 				break;
+			}
 			case 1:
+			{
 				comet = comet2;
+				script.cometVersion = 2;
 				break;
+			}
 			default:
+			{
 				comet = comet1;
+				script.cometVersion = 1;
 				break;
+			}
 		}
 	}
 }

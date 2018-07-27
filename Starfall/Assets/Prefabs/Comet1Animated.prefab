@@ -67,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123011158638686}
-  m_LocalRotation: {x: -0, y: -0, z: -0.04794374, w: -0.99885005}
-  m_LocalPosition: {x: -34.23, y: 14, z: 0.0730621}
+  m_LocalRotation: {x: -0, y: -0, z: 0.071467265, w: 0.99744296}
+  m_LocalPosition: {x: -32.26, y: 15.64, z: 0.0730621}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4019722053159016}
@@ -129,6 +129,8 @@ MonoBehaviour:
   frozenEndTime: 0
   frozen: 0
   timerOn: 0
+  plyaerBody: {fileID: 0}
+  timeSet: 0
 --- !u!114 &114682401965828392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +147,7 @@ MonoBehaviour:
   bottomRight: {x: 81, y: -8, z: 0}
   playerBody: {fileID: 0}
   onComet: 0
+  cometVersion: 1
 --- !u!198 &198577648971300960
 ParticleSystem:
   m_ObjectHideFlags: 1

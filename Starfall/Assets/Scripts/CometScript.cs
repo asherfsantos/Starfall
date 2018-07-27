@@ -16,15 +16,17 @@ public class CometScript : MonoBehaviour
 	public bool frozen = false;
 	public bool timerOn = false;
 	private Vector3 velocity = Vector3.zero;
-	public Rigidbody2D plyaerBody;
+	public Rigidbody2D playerBody;
 	public bool timeSet;
+	public int version;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerScript = player.GetComponent<PlayerMovement>();
-		plyaerBody = player.GetComponent<Rigidbody2D>();
+		playerBody = player.GetComponent<Rigidbody2D>();
+		version = gameObject.transform.parent.GetComponent<CometMovements>().cometVersion;
 		frozen = false;
 		timeLimit = 1.5f;
 	}
@@ -86,8 +88,11 @@ public class CometScript : MonoBehaviour
 		Vector3 colliderPosition;
 		CircleCollider2D currentCollider;
 		currentCollider = gameObject.GetComponent<CircleCollider2D>();
-		colliderPosition = new Vector3(currentCollider.offset.x+0.1f, currentCollider.offset.y+0.1f, 0f);
-		plyaerBody.gravityScale = 0;
+		if(version == 2)
+			colliderPosition = new Vector3(currentCollider.offset.x+0.1f, currentCollider.offset.y+0.1f, 0f);
+		else
+			colliderPosition = new Vector3(currentCollider.offset.x+0.3f, currentCollider.offset.y+0.3f, 0f);
+		playerBody.gravityScale = 0;
         //transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 		playerScript.transform.position = Vector3.SmoothDamp(playerScript.transform.position, transform.position + colliderPosition, ref velocity, 0.03f);
 	}
@@ -97,7 +102,7 @@ public class CometScript : MonoBehaviour
 		onComet = false;
 		playerScript.onComet = false;
 		timeSet = false;
-		plyaerBody.gravityScale = 0.5f;
+		playerBody.gravityScale = 0.5f;
 	}
 
 	private void OnCollisionExit2D(Collision2D other)

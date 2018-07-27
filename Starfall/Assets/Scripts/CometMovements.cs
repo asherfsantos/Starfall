@@ -12,6 +12,7 @@ public class CometMovements : MonoBehaviour
 	public Rigidbody2D playerBody;
 	private Vector3 velocity = Vector3.zero;
 	public bool onComet;
+	public int cometVersion;
 
 	// Use this for initialization
 	void Start () 

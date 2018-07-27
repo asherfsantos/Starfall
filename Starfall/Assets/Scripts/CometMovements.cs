@@ -37,7 +37,7 @@ public class CometMovements : MonoBehaviour
 		}
 	}
 
-	void DestroySlowerStar(GameObject other)
+	void DestroySlowerComet(GameObject other)
 	{
 		if(other.gameObject.CompareTag("Comet"))
 		{

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4854847664699080}
   - component: {fileID: 212080514017120046}
   - component: {fileID: 95209998736243596}
+  - component: {fileID: 114815058267330638}
   m_Layer: 8
   m_Name: Meteor2Animated
   m_TagString: Meteor
@@ -51,8 +52,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059767655356816}
-  m_LocalRotation: {x: -0, y: -0, z: 0.1294749, w: 0.99158275}
-  m_LocalPosition: {x: 61.751698, y: -24.997358, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.058278114, w: 0.99830043}
+  m_LocalPosition: {x: 88.37733, y: -53.155117, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4888049663248150}
@@ -90,6 +91,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114815058267330638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059767655356816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2bf396070648644bf3d0ca2603600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  topLeft: {x: -1.5, y: 7, z: 0}
+  bottomRight: {x: 81, y: -8, z: 0}
+  playerBody: {fileID: 0}
 --- !u!198 &198470948091381040
 ParticleSystem:
   m_ObjectHideFlags: 1

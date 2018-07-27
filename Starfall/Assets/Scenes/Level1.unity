@@ -884,11 +884,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.79
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.93
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_LocalPosition.z
@@ -912,7 +912,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630640380276566, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a7d9a2cf22098e4b96d614b9e5d5529, type: 2}
@@ -1926,7 +1926,7 @@ RectTransform:
   m_Children:
   - {fileID: 897062505}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2360,7 +2360,7 @@ Prefab:
     - target: {fileID: 224252932034551206, guid: e3ce8b7eccd99394db946e0c98933061,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224252932034551206, guid: e3ce8b7eccd99394db946e0c98933061,
         type: 2}
@@ -3638,6 +3638,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d73fd320de588d4594f59bcb6dbd4b5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1218657331
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.5425115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.52032304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.4570312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540113284954672, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6e9c85e70d514d94bbcc661f2acea65b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1226051565
 Prefab:
   m_ObjectHideFlags: 0
@@ -4833,7 +4875,7 @@ Prefab:
     - target: {fileID: 224743625634319172, guid: ddb4f16d0d1f167449b5384994d94362,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224743625634319172, guid: ddb4f16d0d1f167449b5384994d94362,
         type: 2}
@@ -4950,7 +4992,7 @@ Transform:
   - {fileID: 91035095}
   - {fileID: 1909082540}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1537674385 stripped
 Transform:

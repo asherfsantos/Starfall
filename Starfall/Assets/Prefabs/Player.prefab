@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 199109312116829356}
   m_Layer: 8
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: JetPackparticles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,6 +719,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1445418554386438, guid: 2c2379be3fdce17458d10c2b4b6c9a9d, type: 2}
+  asteroid1: {fileID: 0}
+  asteroid2: {fileID: 0}
+  asteroid3: {fileID: 0}
+  asteroid4: {fileID: 0}
+  asteroid5: {fileID: 0}
   nextSpawn: 0
   spawnRate: 5
   spawnLocationX: 81
@@ -738,9 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1844278647492636, guid: f93290c4c5e306245b6f3b8de80464a1, type: 2}
-  whiteStar: {fileID: 1387896759969994, guid: a295523e2dbf82741a51e108290f701e, type: 2}
-  pinkStar: {fileID: 1085637088138854, guid: af1237f31710a32418fb6dd296a73e31, type: 2}
-  purpleStar: {fileID: 1159112267890574, guid: 94ade99f4cfb8c74186653c3da6f14ed, type: 2}
+  whiteStar: {fileID: 1868213911133024, guid: b632d9c9cca604a428f43fa837b84917, type: 2}
+  pinkStar: {fileID: 1070268581860706, guid: d92775ec6cd873a419be88b5069c6bef, type: 2}
+  purpleStar: {fileID: 1766995955023098, guid: 26e0c054e6e5d2a42a04195980afd20b, type: 2}
   nextSpawn: 0
   spawnRate: 1
   spawnLocationX: 91
@@ -792,6 +797,7 @@ MonoBehaviour:
   iceParticles: {fileID: 0}
   burntSprite: {fileID: 21300000, guid: 5a63814c3b9e3124fb6fd16528c3ac23, type: 3}
   isFrozen: 0
+  jetPackParticles: {fileID: 0}
 --- !u!198 &198054284603202322
 ParticleSystem:
   m_ObjectHideFlags: 1

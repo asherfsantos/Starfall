@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarMovements : MonoBehaviour 
+public class CometMovements : MonoBehaviour 
 {
 	public float movementSpeed;
 	GameObject player;
@@ -23,53 +23,43 @@ public class StarMovements : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		MoveStar();
+		MoveComet();
 	}
 
-	// move star toward top left of screen
-	void MoveStar()
+	void MoveComet()
 	{
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, topLeft, step);
 		if(transform.position == topLeft)
 		{	
-			SetPlayerOffStar();
+			//SetPlayerOffStar();
 			Destroy(gameObject);
-		}
-	}
-
-	void OnTriggerStay2D(Collider2D other)
-	{
-		if(other.gameObject.CompareTag("Star"))	
-		{
-			DestroySlowerStar(other.gameObject);
 		}
 	}
 
 	void DestroySlowerStar(GameObject other)
 	{
-		if(other.gameObject.CompareTag("Star"))
+		if(other.gameObject.CompareTag("Comet"))
 		{
 			if(movementSpeed < other.GetComponent<StarMovements>().movementSpeed)
 			{
-				if(playerData.currentStar == gameObject)
-					SetPlayerOffStar();
+				//if(playerData.currentStar == gameObject)
+					//SetPlayerOffStar();
 				Destroy(gameObject);
 			}
 			else
 			{
-				if(playerData.currentStar == other)
-					SetPlayerOffStar();
+				//if(playerData.currentStar == other)
+					//SetPlayerOffStar();
 				Destroy(other);
 			}
 		}
 	}
 
-	void SetPlayerOffStar()
+	void SetPlayerOffComet()
 	{
 		playerData.onStar = false;
 		playerData.canLand = true;
 		playerBody.gravityScale = 0.5f;
 	}
-
 }

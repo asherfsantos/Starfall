@@ -5,6 +5,11 @@ using UnityEngine;
 public class AsteroidSpawns : MonoBehaviour 
 {
 	public GameObject asteroid;
+	public GameObject asteroid1;
+	public GameObject asteroid2;
+	public GameObject asteroid3;
+	public GameObject asteroid4;
+	public GameObject asteroid5;
 	public float nextSpawn = 0.0f;
 	public float spawnRate = 5.0f;
 	public float spawnLocationX = 20.0f;

@@ -36,10 +36,11 @@ public class PlayerMovement : MonoBehaviour
 	public AudioClip deathAudio;
 	public AudioSource gameplaySound;
 	public bool playerLiving = true;
-	public Transform fireParticles;
-	public Transform iceParticles;
+	public ParticleSystem fireParticles;
+	public ParticleSystem iceParticles;
 	public Sprite burntSprite;
 	public bool isFrozen;
+	public ParticleSystem jetPackParticles;
 
 
 	// Use this for initialization
@@ -58,11 +59,14 @@ public class PlayerMovement : MonoBehaviour
 		pausePanel.SetActive(false);
 		diedMenu = GameObject.FindWithTag("Died Menu");
 		diedMenu.SetActive(false);
-		fireParticles = GameObject.FindWithTag("FireParticles").transform;
-		fireParticles.GetComponent<ParticleSystem>().Stop();
-		iceParticles = GameObject.FindWithTag("IceParticles").transform;
-		iceParticles.GetComponent<ParticleSystem>().Stop();
+		fireParticles = GameObject.FindWithTag("FireParticles").transform.GetComponent<ParticleSystem>();
+		fireParticles.Stop();
+		iceParticles = GameObject.FindWithTag("IceParticles").transform.GetComponent<ParticleSystem>();
+		iceParticles.Stop();
 		isFrozen = false;
+		jetPackParticles = GameObject.FindWithTag("JetPackparticles").transform.GetComponent<ParticleSystem>();
+		jetPackParticles.Stop();
+		jetPackParticles.Clear();
 	}
 	
 	void FixedUpdate()
@@ -171,6 +175,8 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
 			{
+				jetPackParticles.Clear(); 
+				jetPackParticles.Play();
 				playerBody.gravityScale = 0.5f;
 				canLand = false;
 				onStar = false;
@@ -180,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if(Input.GetKeyUp(KeyCode.Space))
 			{
+				jetPackParticles.Stop();
 				canLand = true;
 				falling = true;
 			}
@@ -212,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
 		if(!isFrozen)
 		{
 			isFrozen = true;
-			iceParticles.GetComponent<ParticleSystem>().Play();
+			iceParticles.Play();
 			playerRenderer.sprite = frozenSprite;
 			Invoke("PauseIce", 1.0f);
 			Invoke("PlayIce", 3.0f);
@@ -285,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(playerLiving)
 		{
-			fireParticles.GetComponent<ParticleSystem>().Play();
+			fireParticles.Play();
 			playerRenderer.sprite = burntSprite;
 			Invoke("StopFire", 1.0f);
 			Invoke("RevertSprite", 1.0f);
@@ -294,7 +301,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void StopFire()
 	{
-		fireParticles.GetComponent<ParticleSystem>().Stop();
+		fireParticles.Stop();
 	}
 
 	public void RevertSprite()
@@ -304,16 +311,16 @@ public class PlayerMovement : MonoBehaviour
 
 	public void StopIce()
 	{
-		iceParticles.GetComponent<ParticleSystem>().Stop();
+		iceParticles.Stop();
 	}
 
 	public void PauseIce()
 	{
-		iceParticles.GetComponent<ParticleSystem>().Pause();
+		iceParticles.Pause();
 	}
 
 	public void PlayIce()
 	{
-		iceParticles.GetComponent<ParticleSystem>().Play();
+		iceParticles.Play();
 	}
 }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarSpawns : MonoBehaviour 
+public class CometSpawns : MonoBehaviour 
 {
-	public GameObject star;
-	public GameObject whiteStar;
-	public GameObject pinkStar;
-	public GameObject purpleStar;
+	public GameObject comet;
+	public GameObject comet1;
+	public GameObject comet2;
 	public float nextSpawn = 0.0f;
 	public float spawnRate = 1.0f;
 	public float spawnLocationX = 91.0f;
@@ -15,52 +14,48 @@ public class StarSpawns : MonoBehaviour
 	public float lowerY = -8.0f;
 	public float randomY;
 	public Vector2 spawnLocation;
-	public GameObject starsParent;
-	public GameObject newStar;
+	public GameObject cometsParent;
+	public GameObject newComet;
 
 	// Use this for initialization
 	void Start () 
 	{
-		starsParent = GameObject.FindGameObjectWithTag("Stars Parent");
+		cometsParent = GameObject.FindGameObjectWithTag("CometsParent");
 	}
-
+	
 	// Update is called once per frame
 	void Update () 
 	{
-		SpawnStar();
+		SpawnComet();
 	}
 
-	void SpawnStar()
+	void SpawnComet()
 	{
 		if(Time.time > nextSpawn)
 		{
-			StarColor();
+			CometVersion();
 			nextSpawn = Time.time + spawnRate;
 			randomY = Random.Range(lowerY, upperY);
 			spawnLocation = new Vector2(spawnLocationX, randomY);
-			newStar = Instantiate(star, spawnLocation, Quaternion.identity);
-			newStar.transform.parent = starsParent.transform;
+			newComet = Instantiate(comet, spawnLocation, Quaternion.identity);
+			newComet.transform.parent = cometsParent.transform;
 		}
 	}
 
-	void StarColor()
+	void CometVersion()
 	{
-		int randomNumber = Random.Range(0, 3);
+		int randomNumber = Random.Range(0, 2);
 		switch (randomNumber)
 		{
 			case 0:
-				star = purpleStar;
+				comet = comet1;
 				break;
 			case 1:
-				star = whiteStar;
-				break;
-			case 2:
-				star = pinkStar;
+				comet = comet2;
 				break;
 			default:
-				star = purpleStar;
+				comet = comet1;
 				break;
 		}
-		
 	}
 }

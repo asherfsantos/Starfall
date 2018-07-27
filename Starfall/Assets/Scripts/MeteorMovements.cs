@@ -61,4 +61,5 @@ public class MeteorMovements : MonoBehaviour
 		playerData.canLand = true;
 		playerBody.gravityScale = 0.5f;
 	}
+	
 }

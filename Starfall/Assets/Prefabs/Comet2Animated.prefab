@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95362702515259244}
   - component: {fileID: 114227866825041768}
   - component: {fileID: 114855161732622592}
+  - component: {fileID: 58984373069976684}
   m_Layer: 8
   m_Name: Comet2Animated
   m_TagString: Comet
@@ -74,6 +75,21 @@ Transform:
   m_Father: {fileID: 4210550514826180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -207.75, y: -90, z: 89.99999}
+--- !u!58 &58984373069976684
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027493187316718}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!95 &95362702515259244
 Animator:
   serializedVersion: 3

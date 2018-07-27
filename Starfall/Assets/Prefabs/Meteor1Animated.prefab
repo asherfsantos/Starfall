@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212723291037529672}
   - component: {fileID: 95284399536898672}
   - component: {fileID: 114057532974294600}
+  - component: {fileID: 58330068652567448}
   m_Layer: 8
   m_Name: Meteor1Animated
   m_TagString: Meteor
@@ -73,6 +74,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.448001}
+--- !u!58 &58330068652567448
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232611191757200}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!95 &95284399536898672
 Animator:
   serializedVersion: 3

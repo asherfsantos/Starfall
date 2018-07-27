@@ -20,7 +20,7 @@ public class CometSpawns : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		cometsParent = GameObject.FindGameObjectWithTag("CometsParent");
+		cometsParent = GameObject.FindGameObjectWithTag("Comets Parent");
 	}
 	
 	// Update is called once per frame

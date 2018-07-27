@@ -17,11 +17,13 @@ public class AsteroidSpawns : MonoBehaviour
 	public float upperY = 5.0f;
 	public float randomY;
 	public Vector2 spawnLocation;
+	public GameObject asteroidsParent;
+	public GameObject newAsteroid;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		asteroidsParent = GameObject.FindGameObjectWithTag("Asteroids Parent");
 	}
 	
 	// Update is called once per frame
@@ -37,7 +39,9 @@ public class AsteroidSpawns : MonoBehaviour
 			nextSpawn = Time.time + spawnRate;
 			randomY = Random.Range(lowerY, upperY);
 			spawnLocation = new Vector2(spawnLocationX, randomY);
-			Instantiate(asteroid, spawnLocation, Quaternion.identity);
+			//Instantiate(asteroid, spawnLocation, Quaternion.identity);
+			newAsteroid = Instantiate(asteroid, spawnLocation, Quaternion.identity);
+			newAsteroid.transform.parent = asteroidsParent.transform;
 		}
 	}
 }

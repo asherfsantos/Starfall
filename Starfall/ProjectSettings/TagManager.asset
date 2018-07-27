@@ -27,7 +27,9 @@ TagManager:
   - FireParticles
   - IceParticles
   - JetPackparticles
-  - CometsParent
+  - Meteors Parent
+  - Comets Parent
+  - Asteroids Parent
   layers:
   - Default
   - TransparentFX

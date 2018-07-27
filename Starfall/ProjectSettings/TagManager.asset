@@ -31,6 +31,7 @@ TagManager:
   - Comets Parent
   - Asteroids Parent
   - FlameShuttle
+  - Border
   layers:
   - Default
   - TransparentFX

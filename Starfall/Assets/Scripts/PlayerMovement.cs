@@ -230,6 +230,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		//print("Player Died");
 		playerLiving = false;
+		myAnim.enabled = false;
+		playerRenderer.sprite = deathSprite;
 		//gameplaySound.PlayOneShot(explosionSound, 0.08f);
 		gameplaySound.PlayExplosion();
 		PauseMusic();

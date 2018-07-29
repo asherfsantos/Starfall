@@ -7,6 +7,7 @@ public class SoundEffectsScript : MonoBehaviour
 	public AudioSource sfxPlayer;
 	public AudioClip explosion;
 	public AudioClip jetpack;
+	public AudioClip fuelDepletion;
 	// Use this for initialization
 	void Start () 
 	{
@@ -27,5 +28,10 @@ public class SoundEffectsScript : MonoBehaviour
 	public void PlayJetpack()
 	{
 		sfxPlayer.PlayOneShot(jetpack, 1f);
+	}
+
+	public void PlayFuelDepletion()
+	{
+		sfxPlayer.PlayOneShot(fuelDepletion, 1f);
 	}
 }

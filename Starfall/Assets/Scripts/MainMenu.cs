@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void SkipTutorial()
 	{
-		SceneManager.LoadScene(sceneBuildIndex:2);
+		SceneManager.LoadScene(sceneBuildIndex:3);
 	}
 
 	public void QuitGame()

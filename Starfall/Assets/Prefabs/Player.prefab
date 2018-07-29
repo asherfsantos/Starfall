@@ -450,7 +450,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261616146494826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 1.71, z: 0}
+  m_LocalPosition: {x: 0.68, y: 2.53, z: 0}
   m_LocalScale: {x: 0.07107851, y: 0.06772339, z: 1}
   m_Children:
   - {fileID: 4893787386048430}
@@ -719,14 +719,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1445418554386438, guid: 2c2379be3fdce17458d10c2b4b6c9a9d, type: 2}
-  asteroid1: {fileID: 0}
-  asteroid2: {fileID: 0}
-  asteroid3: {fileID: 0}
-  asteroid4: {fileID: 0}
-  asteroid5: {fileID: 0}
+  asteroid1: {fileID: 1646456233910184, guid: dd29cc502f2da58489f4c136f880d3ec, type: 2}
+  asteroid2: {fileID: 1206277849902286, guid: 5fb6e04be2db68a4697c9b8681a3f186, type: 2}
+  asteroid3: {fileID: 1749006571955652, guid: 61c5a5ef227ded945bc75b38fe32d892, type: 2}
+  asteroid4: {fileID: 1970405223360710, guid: 8bb523142d242b34491835d6765d2f34, type: 2}
+  asteroid5: {fileID: 1188031289520290, guid: f2369bb588d989442a454412105b7678, type: 2}
   nextSpawn: 0
   spawnRate: 5
-  spawnLocationX: 81
+  spawnLocationX: 91
   lowerY: -5
   upperY: 5
   randomY: 0

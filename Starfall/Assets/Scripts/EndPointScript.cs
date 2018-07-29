@@ -38,6 +38,5 @@ public class EndPointScript : MonoBehaviour
 				loader.LoadScreen(SceneManager.GetActiveScene().buildIndex +1);
 			}
 		}
-	}
-			
+	}		
 }

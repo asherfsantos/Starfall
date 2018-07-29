@@ -155,7 +155,11 @@ public class PlayerMovement : MonoBehaviour
 
 		//if(movingToCenter == false)
 		playerBody.gravityScale = 0;
-		transform.position = currentStar.transform.position;
+		Vector3 colliderPosition;
+		CircleCollider2D currentCollider;
+		currentCollider = currentStar.GetComponent<CircleCollider2D>();
+		colliderPosition = new Vector3(currentCollider.offset.x + currentStar.transform.position.x, currentCollider.offset.y + currentStar.transform.position.y, 0f);
+		transform.position = colliderPosition;
 	}
 
 	private void MoveTowardCenter()
@@ -177,15 +181,15 @@ public class PlayerMovement : MonoBehaviour
 		//	MoveTowardCenter();
 		if(onStar)
 		{
-			//MoveWithStar();
+			MoveWithStar();
 			playerBody.gravityScale = 0;
-			MoveTowardCenter();
+			//MoveTowardCenter();
 		}
-		if(onComet)
+		/*if(onComet)
 		{
 			playerBody.gravityScale = 0;
 			MoveTowardCenterOfComet();
-		}
+		}*/
 	}
 
 	private void HandleInput()
@@ -224,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void PlayerDies()
 	{
-		print("Player Died");
+		//print("Player Died");
 		playerLiving = false;
 		//gameplaySound.PlayOneShot(explosionSound, 0.08f);
 		gameplaySound.PlayExplosion();
@@ -262,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void UnfreezePlayer()
 	{
-		print("Player Unfroze");
+		//print("Player Unfroze");
 		isFrozen = false;
 		if(playerLiving)
 		{
@@ -305,6 +309,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(playerLiving)
 		{
+			gameplaySound.PlayFuelDepletion();
 			fireParticles.Play();
 			playerRenderer.sprite = burntSprite;
 			Invoke("StopFire", 1.0f);

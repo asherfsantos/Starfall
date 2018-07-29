@@ -36,11 +36,39 @@ public class AsteroidSpawns : MonoBehaviour
 	{
 		if(Time.time > nextSpawn)
 		{
+			AsteroidVersion();
 			nextSpawn = Time.time + spawnRate;
 			randomY = Random.Range(lowerY, upperY);
 			spawnLocation = new Vector2(spawnLocationX, randomY);
 			newAsteroid = Instantiate(asteroid, spawnLocation, Quaternion.identity);
 			newAsteroid.transform.parent = asteroidsParent.transform;
 		}
+	}
+
+	void AsteroidVersion()
+	{
+		int randomNumber = Random.Range(0, 3);
+		switch (randomNumber)
+		{
+			case 0:
+				asteroid = asteroid1;
+				break;
+			case 1:
+				asteroid = asteroid2;
+				break;
+			case 2:
+				asteroid = asteroid3;
+				break;
+			case 4:
+				asteroid = asteroid4;
+				break;
+			case 5:
+				asteroid = asteroid5;
+				break;
+			default:
+				asteroid = asteroid1;
+				break;
+		}
+		
 	}
 }

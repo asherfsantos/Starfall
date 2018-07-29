@@ -32,7 +32,7 @@ public class AsteroidMovements : MonoBehaviour
 			DestroyBoth(other.gameObject);
 		if(other.gameObject.CompareTag("Player"))	
 		{
-			if(playerScript.playerLiving && playerScript.playerProgress >= 1.0f)
+			if(playerScript.playerLiving && playerScript.playerProgress < 1.0f)
 			{
 				playerScript.playerLiving = false;
 				playerScript.PlayerDies();

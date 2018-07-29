@@ -33,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
 	public float timeLeft;
 	public GameObject pausePanel;
 	public GameObject diedMenu;
-	public AudioClip deathAudio;
-	public AudioSource gameplaySound;
+	public AudioSource deathAudio;
+	public SoundEffectsScript gameplaySound;
+	public AudioClip gameplayAudioClip;
 	public bool playerLiving = true;
 	public ParticleSystem fireParticles;
 	public ParticleSystem iceParticles;
@@ -45,11 +46,16 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject currentComet;
 	public GameObject comet;
 	public bool onMeteor;
+	public GameObject mainCamera;
+	public AudioSource bgPlayer;
+	//public AudioClip explosionSound;
 
 
 	// Use this for initialization
 	void Start () 
 	{
+		mainCamera = GameObject.FindWithTag("MainCamera");
+		bgPlayer = mainCamera.GetComponent<BGMusicScript>().audioPlayer;
 		player = GameObject.FindWithTag("Player");
 		playerBody = player.GetComponent<Rigidbody2D>();
 		playerRenderer = player.GetComponent<SpriteRenderer>();
@@ -71,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 		jetPackParticles = GameObject.FindWithTag("JetPackparticles").transform.GetComponent<ParticleSystem>();
 		jetPackParticles.Stop();
 		jetPackParticles.Clear();
+		gameplaySound = GameObject.FindWithTag("SFX Player").GetComponent<SoundEffectsScript>();
 	}
 	
 	void FixedUpdate()
@@ -187,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
 			{
+				gameplaySound.PlayJetpack();
 				jetPackParticles.Clear(); 
 				jetPackParticles.Play();
 				playerBody.gravityScale = 0.5f;
@@ -218,7 +226,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		print("Player Died");
 		playerLiving = false;
-		gameplaySound.PlayOneShot(deathAudio, 0.08f);
+		//gameplaySound.PlayOneShot(explosionSound, 0.08f);
+		gameplaySound.PlayExplosion();
+		PauseMusic();
+		PlayDeathMusic();
 		playerRenderer.sprite = deathSprite;
 		playerBody.constraints = RigidbodyConstraints2D.FreezeAll;
 		canMove = false;
@@ -355,5 +366,17 @@ public class PlayerMovement : MonoBehaviour
 		playerBody.gravityScale = 0;
         //transform.position = Vector3.SmoothDamp(transform.position, currentStar.transform.position, ref velocity, 0.03f);
 		transform.position = Vector3.SmoothDamp(transform.position, currentComet.transform.position + colliderPosition, ref velocity, 0.03f);
+	}
+
+	public void PauseMusic()
+	{
+		print("Mute");
+		bgPlayer.mute = true;
+		bgPlayer.Stop();
+	}
+
+	public void PlayDeathMusic()
+	{
+		deathAudio.Play();
 	}
 }

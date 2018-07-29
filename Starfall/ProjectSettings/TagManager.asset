@@ -32,6 +32,9 @@ TagManager:
   - Asteroids Parent
   - FlameShuttle
   - Border
+  - Fader
+  - Death Sound
+  - SFX Player
   layers:
   - Default
   - TransparentFX
